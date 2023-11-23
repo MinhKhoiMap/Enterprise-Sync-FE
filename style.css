@@ -16,9 +16,23 @@ body{
     margin-top: 170px !important;
 }
 .frame_login{
-    padding: 20px 68px !important;
-    height: 825px;
-    margin-top: 40px !important;
+    padding: 0 68px !important;
+    height: 750px;
+    
+}
+
+.frame_login#frame_login3{
+  padding: 0 45px !important;
+}
+.form-control{
+  width: 500px !important;
+}
+#process{
+  margin-top: 20px;
+}
+#container_login{
+  margin-top: 20px;
+  height: 890px !important;
 }
 .line {
     width: 50px;
@@ -61,13 +75,15 @@ body{
     font-family: Poetsen;
     color: #301E67;
   }
+  .title#title_stage3{
+    font-size: 2.6rem ;
+  }
   .subtitle{
     font-family: OpenSans;
   }
   .form-control {
     border: none !important; 
-    border-bottom: 1px solid #301E67 !important; /* Thêm dòng kẻ ở dưới */
-    border-radius: 0 !important; 
+    
   }
 .continue_btn{
     background-color: #634FBE !important;
@@ -80,6 +96,7 @@ body{
     
 }
 .app{
+    font-family: OpenSans;
     display: flex !important;
     width: 575px !important;
     justify-content: center !important;
@@ -87,6 +104,8 @@ body{
     gap: 15px !important;
     border-radius: 30px !important;
     background-color: white !important;
+    color: var(--xm-than, #767676) !important;
+    font-weight: 400 !important;
     border: 1px solid var(--xm-than, #767676) !important;
 }
 .app:hover{
@@ -95,4 +114,21 @@ body{
 }
 .error{
   color: red;
+  font-size: .72rem !important;
+}
+.img_toast{
+    width: 40px;
+    height: 20px;
+}
+.passwordField{
+  border-bottom: 1px solid #301E67 !important; /* Thêm dòng kẻ ở dưới */
+  border-radius: 0 !important; 
+}
+.mail_business{
+  width: 512px !important;
+  border-bottom: 1px solid #301E67 !important; /* Thêm dòng kẻ ở dưới */
+  border-radius: 0 !important; 
+}
+.option{
+  width: 512px !important;
 }
