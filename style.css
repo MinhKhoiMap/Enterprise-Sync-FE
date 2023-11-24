@@ -13,7 +13,14 @@ body{
     margin: 0 auto;
     margin-bottom: 60px;
   }
-  
+  .slogan{
+    font-family: poetsen one;
+    color: white;
+    margin-top: 170px !important;
+}
+p{
+  width: 100%;
+}
 .header {
     background-color: transparent;
     color: #000000;
@@ -29,9 +36,10 @@ h1{
 }
 .hr-container {
   position: relative;
-  width: 463px;
+  width: 100%;
   margin-top: 55px; 
   margin-bottom: 30px; 
+  padding: 0 56px;
   margin-left: auto; 
   margin-right: auto;
   font-family: open sans;
@@ -127,6 +135,10 @@ label{
   font-family: "open sans";
   src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
 }
+.btn{
+  display: flex;
+  vertical-align: middle;
+}
 .other_login{
   width:100%;
   outline: none;
@@ -142,9 +154,14 @@ label{
   border-radius: 50px;
   font-family: open sans;
   font-size: 16px;
+  vertical-align: middle;
 }
 .other_login:hover{
-  background-color: #eaeaea;
-    color:  #301E67;
+  background-color: #DCD4E1;
+  color:  #634FBE;
 }
+.other_login:active{
+  background-color: #634FBE;
+  color: #fff;
 
+}
