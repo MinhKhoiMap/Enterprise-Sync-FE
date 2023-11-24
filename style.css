@@ -1,37 +1,104 @@
 body{
+    width: 100%;
     height: 100vh;
     background-image: url(src/Rectangle.png);
-    background-size: cover
+    background-size: cover;
+    padding: 60px 70px;
 }
 .card { 
     width: 711px;
-    height: 883px;
+    height: 817px;
     border-radius: 10px;
+    padding: 116px 68px;
+    margin: 0 auto;
+    margin-bottom: 60px;
   }
   
 .header {
     background-color: transparent;
     color: #000000;
     text-align: center;
+    margin-bottom: 55px;
+    font-size: 16px;
+    font-family: open sans;
   }
 h1{
     font-family: poetsen one;
     color:  #301E67;
+    font-size: 50px;
 }
-  
+.hr-container {
+  position: relative;
+  width: 463px;
+  margin-top: 55px; 
+  margin-bottom: 30px; 
+  margin-left: auto; 
+  margin-right: auto;
+  font-family: open sans;
+ }
+ 
+ hr {
+  border: none;
+  height: 1px;
+  background-color: #000;
+ }
+ 
+ .text-over-hr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 0 10px;
+  color: #000;
+ }
 .card-body {
     width: 100%;
     background-color: transparent;
+    padding: 0%;
   }
-  
-.form-control {
-    margin-bottom: 10px;
-    margin-top: 5px;
+a{
+  font-family: open;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: open sans;
+}
+
+label{
+  color: #767676;
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-family: open sans;
+}
+#username {
     width: 100%;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #767676;
+    font-size: 16px;
+    color: #000000;
+    font-family: open sans;
+}
+#password{
+  width: 100%;
+  outline: 0;
+  border: 0;
+  font-size: 16px;
+  color: #000000;
+  font-family: open sans;
+}
+.password_border{
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid #767676;
+}
+#eye{
+  cursor: pointer;
 }
 #submit_btn {
     width: 140px;
-    height: 52px;
+    height: 47px;
     display: flex;
     justify-content: center;
     background-color: #634FBE;
@@ -43,6 +110,10 @@ h1{
     align-items: center;
     font-size: 18px; 
     font-weight: bold;
+    margin-top: 15px;
+    font-family: open sans;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   #submit_btn:hover{
     background-color: #DCD4E1;
@@ -52,8 +123,13 @@ h1{
     font-family: "poetsen one";
     src: url(fonts/PoetsenOne-Regular.ttf);
 }
-#other_login{
+@font-face {
+  font-family: "open sans";
+  src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+.other_login{
   width:100%;
+  outline: none;
   height: 52px;
   margin-top: 15px;
   background-color: transparent;
@@ -64,4 +140,11 @@ h1{
   justify-content: center;
   cursor: pointer;
   border-radius: 50px;
+  font-family: open sans;
+  font-size: 16px;
 }
+.other_login:hover{
+  background-color: #eaeaea;
+    color:  #301E67;
+}
+
