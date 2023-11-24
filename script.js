@@ -155,16 +155,32 @@ navListBtn.forEach((button, index) => {
     });
 });
 
-
 function activateButton(button) {
-
     var buttons = document.querySelectorAll('.circle');
     buttons.forEach(function (btn) {
         btn.classList.remove('active');
+
+        btn.removeAttribute('disabled');
     });
 
-
     button.classList.add('active');
+   
+    disableButtonsAfter(button);
+}
+
+function disableButtonsAfter(selectedButton) {
+    var buttons = document.querySelectorAll('.circle');
+    var disable = false;
+
+    buttons.forEach(function (btn) {
+        if (disable) {
+            btn.setAttribute('disabled', 'disabled');
+        }
+
+        if (btn === selectedButton) {
+            disable = true;
+        }
+    });
 }
 
 const toastTrigger = document.getElementById('liveToastBtn')
@@ -178,13 +194,20 @@ if (toastTrigger) {
 }
 
 
-function togglePasswordVisibility(inputId) {
+
+function togglePasswordVisibility(inputId, icon) {
     var passwordInput = document.getElementById(inputId);
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
+        icon.classList.remove('fa-regular','fa-eye-slash');
+        icon.classList.add('fa-regular', 'fa-eye');
+       
     
     } else {
         passwordInput.type = "password";
+        icon.classList.remove('fa-regular', 'fa-eye');
+        icon.classList.add('fa-regular', 'fa-eye-slash');
+        
     }
 }

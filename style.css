@@ -27,12 +27,22 @@ body{
 .form-control{
   width: 500px !important;
 }
+.frame_login input {
+    outline: none;
+}
+.form-label{
+  color: var(--xm-than, #767676);
+  font-family: OpenSans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+}
 #process{
   margin-top: 20px;
 }
 #container_login{
   margin-top: 20px;
-  height: 890px !important;
+  height: 865px !important;
 }
 .line {
     width: 50px;
@@ -89,6 +99,12 @@ body{
     background-color: #634FBE !important;
 }
 
+.continue_btn:hover{
+  color: var(--cta-button, #634FBE) !important;
+  
+  background: var(--Hover-purple, #DCD4E1) !important;
+}
+
 .line1{
     width: 180px;
     height: 1px;
@@ -107,10 +123,31 @@ body{
     color: var(--xm-than, #767676) !important;
     font-weight: 400 !important;
     border: 1px solid var(--xm-than, #767676) !important;
+    font-size: 20px !important;
+}
+.app1{
+  font-family: OpenSans;
+  display: flex !important;
+  width: 575px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 15px !important;
+  border-radius: 30px !important;
+  background-color: white !important;
+  color: var(--xm-than, #767676) !important;
+  font-weight: 400 !important;
+  border: 1px solid var(--xm-than, #767676) !important;
+  font-size: 20px !important;
 }
 .app:hover{
   background-color: #634FBE !important;
   color: white !important;
+}
+.app1:hover{
+  color: var(--cta-button, #634FBE) !important;
+  font-weight: 700 !important;
+  background: var(--Hover-purple, #DCD4E1) !important;
+  border: none !important;
 }
 .error{
   color: red;

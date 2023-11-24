@@ -15,8 +15,9 @@
     <div class="container p-0">
         <div class="row">
             <div class="col-sm-6 icon_slogan mt-5">
-                <div class="logo img-fluid">
-                    <img src="img/Property 1=white.png">
+                <div class="logo">
+                    <img src="img/Group 1.svg">
+                    <img src="img/Group.svg" style="margin-top: 34px;" >
                 </div>
                 <div class="slogan display-5 w-50">
                     <p>Easiest way to manage your business</p>
@@ -26,9 +27,9 @@
                 <div class="d-flex flex-row justify-content-center nav_list_btn" id="process">
                     <button class="circle active" onclick="activateButton(this)" data-frame="1">1</button>
                     <div class="line align-self-center"></div>
-                    <button class="circle" onclick="activateButton(this)" data-frame="2">2</button>
+                    <button class="circle" onclick="activateButton(this)" data-frame="2" disabled>2</button>
                     <div class="line align-self-center"></div>
-                    <button class="circle" onclick="activateButton(this)" data-frame="3">
+                    <button class="circle" onclick="activateButton(this)" data-frame="3" disabled>
                         <i class="fa-solid fa-check"></i>
                     </button>
                 </div>
@@ -55,8 +56,8 @@
                             <label for="exampleFormControlInput2" class="form-label">Password</label>
                             <div class="d-flex passwordField">
                                 <input type="password" class="pass form-control" id="exampleFormControlInput2">
-                                <i class="d-flex fa-solid fa-eye align-items-center"
-                                    onclick="togglePasswordVisibility('exampleFormControlInput2')"></i>
+                                <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                                    onclick="togglePasswordVisibility('exampleFormControlInput2',this)"></i>
 
                             </div>
                             <span id="passwordError" class="error"></span>
@@ -65,8 +66,9 @@
                             <label for="exampleFormControlInput3" class="form-label">Confirm Password</label>
                             <div class="d-flex passwordField">
                                 <input type="password" class="pass form-control" id="exampleFormControlInput3">
-                                <i class="d-flex fa-solid fa-eye align-items-center"
-                                    onclick="togglePasswordVisibility('exampleFormControlInput3')"></i>
+                                <div id="eye"></div>
+                                <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                                    onclick="togglePasswordVisibility('exampleFormControlInput3',this)"></i>
                             </div>
                             <span id="confirmPasswordError" class="error"></span>
                         </div>
@@ -84,8 +86,8 @@
                         <div class="line1 align-self-center "></div>
                     </div>
                     <div class="d-flex flex-column mb-3 align-items-center">
-                        <div class="app p-2 mt-4"><img src="img/devicon_google.png">Continue with Google</div>
-                        <div class="app p-2 mt-4"><img src="img/logos_facebook.png">Continue with Facebook</div>
+                        <div class="app1 p-2 mt-4"><img src="img/devicon_google.svg">Continue with Google</div>
+                        <div class="app1 p-2 mt-4"><img src="img/logos_facebook.svg">Continue with Facebook</div>
                     </div>
                 </div>
                 <!--Stage 2-->
@@ -110,7 +112,7 @@
                     <div class="d-flex flex-column mb-3 align-items-center" id="option_shopee">
                         <div class="option accordion-item mt-4">
                             <h2 class="accordion-header">
-                                <button class="app collapse fs-4 p-2 w-100" type="button" data-bs-toggle="collapse"
+                                <button class="app collapse p-2 w-100" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     My business already has a Shopee account
                                 </button>
@@ -129,8 +131,8 @@
                                         <div class="d-flex passwordField">
                                             <input type="password" class="form-control" id="exampleFormControlInput6">
 
-                                            <i class="d-flex fa-solid fa-eye align-items-center"
-                                                onclick="togglePasswordVisibility('exampleFormControlInput6')"></i>
+                                            <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                                                onclick="togglePasswordVisibility('exampleFormControlInput6',this)"></i>
                                         </div>
                                         <span id="shopeePasswordError1" class="error"></span>
                                     </div>
@@ -147,7 +149,7 @@
                         <div class="option accordion-item mt-4">
                             <h2 class="accordion-header">
                                 <button class="app collapsed p-2 w-100 " type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size:1.4rem; ">
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     My business hasn't have a Shopee account yet
                                 </button>
                             </h2>
@@ -166,8 +168,8 @@
                                         <div class="d-flex passwordField">
                                             <input type="password" class="form-control" id="exampleFormControlInput8">
 
-                                            <i class="d-flex fa-solid fa-eye align-items-center"
-                                                onclick="togglePasswordVisibility('exampleFormControlInput8')"></i>
+                                            <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                                                onclick="togglePasswordVisibility('exampleFormControlInput8',this)"></i>
                                         </div>
                                         <span id="shopeePasswordError2" class="error"></span>
                                     </div>
@@ -228,6 +230,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    
     <script src="https://kit.fontawesome.com/37734cba31.js" crossorigin="anonymous"></script>
 </body>
 
