@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+*,::after,::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Kdam',sans-serif;
+    margin: 0;
+    background-size: 100%;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Kdam',sans-serif;
+}
+li{
+    list-style-type: none;
+}
+
+.wrapper{
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+    background-color: #E7E1EA;
+}
+#sidebar{
+    margin-top: 25px;
+    margin-bottom: 24px;
+    margin-left:20px ;
+    max-width: 216px;
+    min-width: 216px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#sidebar.collapsed{
+    margin-left: -264px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    margin-right: 63px;
+    margin-left: 26px;
+}
+.logo{
+    display: flex;
+    width: 133.331px;
+    height: 44px;
+    margin: 38px 12px 0 12px;
+}
+.sidebar-nav{
+    margin: 38px 0px 12px 0px;
+    padding: 0;
+}
+.nav-item{
+    display: flex;
+    justify-content: center;
+    margin: 36px 0 36px 0;
+    display: flex;
+    width: auto;
+    height: 50px;
+}
+
+#nav_item6{
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+.container-fluid{
+    display: flex;
+    margin-left: 20px !important;
+    background-image: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+.navbar{
+    margin-top: 26px;
+    border-radius: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+}
+#icon_user{
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
