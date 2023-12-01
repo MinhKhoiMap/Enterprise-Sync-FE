@@ -3,7 +3,14 @@
 *,::after,::before{
     box-sizing: border-box;
 }
-
+@font-face {
+    font-family: Poetsen;
+    src: url("../../font/PoetsenOne-Regular.ttf");
+  }
+@font-face {
+    font-family: OpenSans;
+    src: url("../../font/OpenSans-VariableFont_wdth\,wght.ttf");
+}
 body{
     font-family: 'Kdam',sans-serif;
     margin: 0;
@@ -55,19 +62,38 @@ li{
 }
 .sidebar-nav{
     margin: 38px 0px 12px 0px;
-    padding: 0;
+    padding:0 11px 0 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+}
+.nav-link{
+    display: flex !important;
+    width: 192px;
+    max-width: 205px;
+    padding: 10px 38px 10px 19px;
+    column-gap: 20px;
+    align-items: center;
+    font-family: OpenSans;
+    color: var(--primary-purple, #301E67);
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 300 !important;
+    line-height: normal;
+
 }
 .nav-item{
     display: flex;
-    justify-content: center;
-    margin: 36px 0 36px 0;
-    display: flex;
-    width: auto;
-    height: 50px;
+    width: 100%;
+    padding: 10px 38px 10px 19px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #nav_item6{
-    margin-top: 250px;
+    margin-top: 220px;
     margin-bottom: 50px;
 }
 .container-fluid{

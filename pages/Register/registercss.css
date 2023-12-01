@@ -1,13 +1,13 @@
 @font-face {
   font-family: Poetsen;
-  src: url("font/PoetsenOne-Regular.ttf");
+  src: url("../../font/PoetsenOne-Regular.ttf");
 }
 @font-face {
   font-family: OpenSans;
-  src: url("font/OpenSans-VariableFont_wdth\,wght.ttf");
+  src: url("../../font/OpenSans-VariableFont_wdth\,wght.ttf");
 }
 body{
-  background-image: url("img/Rectangle.png");
+  background-image: url("../../img/Rectangle.png");
   background-size: cover;
 }
 .slogan{
