@@ -162,3 +162,8 @@ li {
   top: calc(50% - 12px);
   animation: slide_right_to_left 0.2s linear forwards;
 }
+.nav-item:hover{
+  background: #DCD4E1;
+  color: #301e67;
+  position: relative;
+}
