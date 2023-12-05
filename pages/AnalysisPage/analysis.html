@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./analysisStyle.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Sidebar-->
+        <div class="sidebar">
+            <div class="h-100 d-flex flex-column justify-content-between">
+                <div class="sideMenu">
+                    <div class="d-flex justify-content-center">
+                        <div class="logo">
+                            <img src="../../img/Group 1 (2).svg" style="width: 38.072px; height: 35.103px" />
+                            <img src="../../img/Group (2).svg"
+                                style="width: 94.392px; height: 35.022px; margin-top: 8.5px" />
+                        </div>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item rounded-3" id="dashboard">
+                            <a class="nav-link" href="#" ">
+                  <img class=" icon_nav" src="../../img/dashboard.svg" />
+                            Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item rounded-3" id="analysis">
+                            <a class="nav-link" href="">
+                                <img class="icon_nav" src="../../img/analysis.svg" />
+                                Analysis
+                            </a>
+                        </li>
+                        <li class="nav-item rounded-3" id="setting">
+                            <a class="nav-link" href="#">
+                                <img class="icon_nav" src="../../img/setting.svg" />
+                                Setting
+                            </a>
+                        </li>
+                        <li class="nav-item rounded-3" id="add_order">
+                            <a class="nav-link" href="#">
+                                <img class="icon_nav" src="../../img/add_order.svg" />
+                                Staffs
+                            </a>
+                        </li>
+                        <li class="nav-item rounded-3" id="gethelp">
+                            <a class="nav-link" href="#">
+                                <img class="icon_nav" src="../../img/gethelp.svg" />
+                                Get Help
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="nav_item6">
+                    <a class="nav-link" href="#">
+                        <img class="icon_nav" src="../../img/Logout_icon.svg" />
+                        Log out
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom d-flex justify-content-end">
+                <img class="icon_user" src="../../img/Avatar.svg" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            </nav>
+            <div class="row analysis gx-5">
+                <div class="col-sm-9 barChartBox p-5 mt-2">
+                    <div class="title">
+                        <p id="title1">Order Total</p>
+                        <p id="title2">1560</p>
+                        <p id="title3">November 2023</p>
+                    </div>
+                    <hr style="margin:40px 0 40px 0; border-width: 2px;">
+                    <div class="barchart" style="height: 300px;">
+                        <canvas id="Total_Bar_Chart"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-3 doughnutChartBox mt-2">
+                    <div class="title">
+                        <p id="title1">Order Total</p>
+                        <p id="title2">1560</p>
+                        <p id="title3">November 2023</p>
+                    </div>
+                    <div class="doughnutChart">
+                        <canvas id="doughnutChart" style="width: 199px;height: 199px ;"></canvas>
+                    </div>
+                    <div class="label">
+                        <div class="label1 d-flex align-items-center justify-content-between">
+                            <div class="d-flex">
+                                <div class="circle" id="c1"></div>
+                                <div>Total Order</div>
+                            </div>
+                            <div class="index d-flex ">
+                                <div>24%</div>
+                                <img src="../../img/up_arrow.svg">
+                            </div>
+                        </div>
+                        <div class="label2 d-flex align-items-center justify-content-between mt-2">
+                            <div class="d-flex">
+                                <div class="circle" id="c2"></div>
+                                <div>Total Canceled</div>
+                            </div>
+                            <div class="index d-flex">
+                                <div>30%</div>
+                                <img src="../../img/up_arrow.svg">
+                            </div>
+                        </div>
+                        <div class="label3 d-flex align-items-center justify-content-between mt-2">
+                            <div class="d-flex">
+                                <div class="circle" id="c3"></div>
+                                <div>Total Complete</div>
+                            </div>
+                            <div class="index d-flex">
+                                <div>26%</div>
+                                <img src="../../img/down_arrow.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="./analysis.js"></script>
+    <script src="https://kit.fontawesome.com/37734cba31.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
