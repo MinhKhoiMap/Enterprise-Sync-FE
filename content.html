@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Table</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="content.css">
+</head>
+<body>
+    <div class="container">
+        <div class=" col-12">
+            <div class="row d-flex">
+                <h1 id="dashboard" class="col-8">Dash Board</h1>
+                <div class="col-4 justify-content-end pagination" >
+                    <button id="first" disabled><img src="src/Pagination_icon_first.png" alt=""></button>
+                    <button id="previous" disabled ><img src="src/previous.png" alt=""></button>
+                    <button id="page1" class="active">1</button>
+                    <button id="page2">2</button>
+                    <button id="page3">3</button>
+                    <button id="next"><img src="src/Pagination_icon_next.png" alt=""></button>
+                    <button id="last"><img src="src/Pagination_icon_last.png" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <div id="body_content">
+            <table id="contentTable" style="border: none;">
+                <thead>
+                    <tr>
+                        <th style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">Order Id</th>
+                        <th>Order day</th>
+                        <th>Chanel</th>
+                        <th>Total Price</th>
+                        <th style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="contentTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="content.js"></script>
+    <script src="pagination.js"></script>
+</body>
+</html>
+    
