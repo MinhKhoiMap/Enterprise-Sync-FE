@@ -1,0 +1,105 @@
+#myMonthPicker{
+    width: 196px;
+    min-height: 46px;
+}
+.card-body{
+    width: 284px;
+    height: 276px;
+    border-radius: 16px ;
+    padding: 14px;
+    background-color: #301E67;
+}
+.btn-group{
+    width: 252px;
+    height: 24px;
+    padding: 0%;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    
+}
+label{
+    background-color: transparent; 
+    color: white; 
+    width: 200px; 
+    margin: 0%; 
+    text-align: center;
+    font-family: "open sans";
+    font-weight: bold;
+    font-size: 16px;
+}
+input{
+    font-family: "open sans";
+    font-weight: bold;
+    font-size: 20px;
+}
+table{
+    max-width: 252px !important;
+    margin: auto;
+}
+
+#calendarframe{
+    width: 284px;
+    padding: 0%;
+    margin: 0px auto;
+
+}
+tr{
+    margin-left: 14px;
+}
+td{
+    width: 84px;
+    height: 52px;
+    border: none;
+    text-align: center;
+    font-family: "open sans light";
+}
+.monthBtn{
+    width: 84px;
+    height: 52px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+}
+
+.monthBtn:active{
+    outline: #301E67;
+    border: #301E67;
+    background-color: white;
+    color: #301E67;
+    border-radius: 16px;
+}
+
+.monthBtn:hover{
+    background-color: #DCD4E1;
+    color: #301E67;
+    border-radius: 16px;
+}
+i{
+    color: white;
+}
+@font-face {
+    font-family: "open sans";
+    src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: "open sans light";
+    src: url(fonts/OpenSans_SemiCondensed-Light.ttf);
+}
+input{
+    background-color: #301E67;
+    color: white;
+}
+.month-year{
+    display: block;
+}
+h1{
+    font-family: open sans;
+    font-weight: 25px;
+    color: #301E67;
+    margin: 0%;
+}
+#myMonthFrame.margin {
+    margin-top: 4px;
+}
