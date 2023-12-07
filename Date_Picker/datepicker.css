@@ -1,0 +1,32 @@
+#dropdownMenuButton{
+    border: none;
+    outline: none;
+    width: 15%;
+    height: 52px;
+    background-color: transparent;
+}
+input{
+    width: 85%;
+    height: 52px;
+    border: none;
+    outline: none;
+    cursor: default;
+    padding-left: 20px;
+    background-color: transparent;
+    color: #767676;
+    font-family: open sans light;
+}
+.container{
+    width: 343px;
+    height: 52px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+@font-face {
+    font-family: "open sans";
+    src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: "open sans light";
+    src: url(fonts/OpenSans_SemiCondensed-Light.ttf);
+}

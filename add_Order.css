@@ -1,0 +1,138 @@
+body{
+    background-color: #DCD4E1;
+}
+#header_title{
+    font-family: open sans;
+    font-weight: bold;
+    font-weight: 80px;
+    color: #301E67;
+}
+.container{
+    width: 1100px;
+    max-height: 692px;
+}
+label{
+    padding: 0%;
+}
+
+@font-face {
+    font-family: "open sans";
+    src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: "open sans light";
+    src: url(fonts/OpenSans_SemiCondensed-Light.ttf);
+}
+.headerInfor{
+    font-size: 18px;
+    font-family: open sans light;
+    padding: 0%;
+    color: #301E67;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.sb_background{
+    padding: 6px;
+    width: 542px;
+    height: 628px;
+    margin-bottom: 10px;
+    
+}
+.infor{
+    margin:auto 0px ;
+    padding: 0%;
+    color: #767676;
+    font-family: open sans light;
+}
+.left{
+    width: 540;
+}
+.order_input{
+    width: 251px;
+    height: 54px;
+    border-radius: 10px;
+    margin: 0%;
+    font-family: open sans light;
+}
+.spacing{
+    margin-top: 10px;
+}
+.custominfor{
+    font-family: open sans light;
+    margin-top: 25px;
+    color: #767676;
+}
+.custom_input{
+    border: none;
+    border-bottom: 1px solid #767676;
+    outline: none;
+    padding: 0%;
+}
+.order_input{
+    border: 1px solid #767676;
+    outline: none;
+}
+.custom_input:placeholder{
+    font-family: open sans light;
+    color: #767676;
+}
+.backgr_left{
+    width: 542px;
+    height: 628px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin-right: 13px;
+    margin-bottom: 10px;
+}
+.backgr_right{
+    width: 542px;
+    height: 628px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+}
+.search{
+    width: 502px;
+    height: 40px;
+    border: 1px solid #767676;
+    background-color: transparent;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+input::placeholder {
+    font-family: open sans light;
+    color: #767676;
+  } 
+#search_order_res{
+    width: 502px;
+    height: 336px;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+#totalPrice{
+    padding: 0%;
+    margin: auto;
+    text-align: end;
+    font-size: 30px;
+    font-family: open sans;
+    
+}
+.continute_btn{
+    width: 100%;
+    height: 47px;
+    border: none;
+    background-color: #301E67;
+    color: white;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: open sans;
+    font-weight: bold;
+    padding: 0%;
+
+}
+
+
