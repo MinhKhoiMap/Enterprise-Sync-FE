@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <link rel="stylesheet" href="add_Order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container d-flex" style="padding: 0%;">
+        <div class="row d-flex col-12 frame" style="padding: 0%;">
+            <div class="col-12">
+                <h1 id="header_title">Add new order</h1>
+            </div>
+            
+            <div class="col-12 col-md-6 sb_background d-flex">
+                <div class="container backgr_left">
+                    <label class="headerInfor col-12">Customer Information</label>
+                    <label class="custominfor" for="name" id="customerName">Name</label>
+                    <input type="text" class="form-text custom_input col-12" id="name" name="name" />
+                    <label class="custominfor" for="phonenumber" id="customerName">Phone Number</label>
+                    <input type="text" class="form-text custom_input col-12" id="phonenumber" name="phonenumber" />
+                    <label class="custominfor" for="address" id="customerName">Address</label>
+                    <input type="text" class="form-text custom_input col-12" id="address" name="address" />
+
+                    <label class="headerInfor">Order Information</label>
+                    <div class="container col-12 ">
+                        <div class="row d-flex spacing">
+                            <label class="col-6 infor" for="channel" id="channel">Channel</label>
+                            <div class="col-6" style="padding-left: 0%;">
+                                <div class="order_input" id="choose-channel">Choose channel</div>
+                                <div id="content1">
+                                <h3>Choose channel</h3>
+                                <p>Shopee</p>
+                                <p>Tiki</p>
+                                <p>Lazada</p>
+                            </div>
+                            </div>
+                                
+                        </div>      
+                    </div>
+                    <div class="row d-flex spacing">
+                        <label class="col-6 infor" for="orderDay" id="orderDay">Order day</label>
+                        <div class="col-6" style="padding-left: 0%;">
+                            <div class="order_input">
+                                <input type="text" id="datepicker">
+                                <button class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </button>
+                            </div>
+                            
+                        </div>
+                        <!-- <input type="text" class="form-text col-6 order_input" id="orderDay" name="orderDay"
+                            placeholder="3/12/2023" /> -->
+                    </div>
+
+                    <div class="row d-flex spacing">
+                        <label class="col-6 infor" for="status" id="status">Status</label>
+                        <div class="col-6" style="padding-left: 0%;">
+                            <div class="order_input" id="status-choose">Choose status</div>
+                            <div id="content">
+                                <h3>Choose status</h3>
+                                <p>Pending</p>
+                                <p>Done</p>
+                                <p>Return</p>
+                            </div>
+                        
+                        <!-- <select class="col-6 order_input dropdown" id="status" placeholder="Choose status" onchange="updateStatus(this.value) ">
+                            <option value="done">Done</option>
+                            <option value="return">Return</option>
+                            <option value="pending">Pending</option>
+                            </select> -->
+                        <!-- <input type="text" class="form-text col-6 order_input" id="status" name="channel"
+                            placeholder="Choose status" /> -->
+                        </div>
+                    </div>
+                    
+                </div>
+            <div class="col-12 col-md-6 sb_background d-block">
+                <div class="container backgr_right">
+                    <label class="headerInfor">Order detail</label>
+                    <div class="position-relative">
+                        <input type="text" id="search-product__input" class="col-12 search "
+                            placeholder="Search Product">
+
+                        <div id="search_order_res" class="position-absolute" >
+
+                        </div>
+                    </div>
+                    <div id="search_order"></div>
+
+                    <label class="headerInfor">Total</label>
+                    <div class="row d-flex" style="padding: 0px 20px;">
+                        <label id="totalPrice" class="col-11">40.000</label>
+                        <p id="unit" class="col-1"
+                            style="font-weight: 16px; padding: 0%; margin: auto; text-align: end;">VND</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+                
+        </div>
+        <div class="col-12" style=" padding:0%; padding-left: 3px; margin: auto;">
+            <button type="button" class="continute_btn">Continute</button>
+        </div>
+    </div>
+</body>
+<script src="./addOrder.js"></script>
+            <script>
+                var bar = document.getElementById("choose-channel");
+                var content = document.getElementById("content1");
+                var liness = content.getElementsByTagName("p");
+                
+                bar.addEventListener("click", function() {
+                 content.style.display = content.style.display === "none" ? "block" : "none";
+                });
+                
+                for (var i = 0; i < lines.length; i++) {
+                 lines[i].addEventListener("click", function() {
+                    bar.innerHTML = this.innerHTML;
+                    content.style.display = "none";
+                 });
+                }
+
+                var bar = document.getElementById("status-choose");
+                var content = document.getElementById("content");
+                var lines = content.getElementsByTagName("p");
+                
+                bar.addEventListener("click", function() {
+                 content.style.display = content.style.display === "none" ? "block" : "none";
+                });
+                
+                for (var i = 0; i < lines.length; i++) {
+                 lines[i].addEventListener("click", function() {
+                    bar.innerHTML = this.innerHTML;
+                    content.style.display = "none";
+                 });
+                }
+
+    
+                </script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                    var date = new Date();
+                    var today = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+                    
+                    var datepicker = flatpickr("#dropdownMenuButton", {
+                        enableTime: false,
+                        dateFormat: "d/m/Y",
+                        defaultDate: today,
+                        onChange: function(selectedDates, dateStr, instance) {
+                            var dateInput = document.querySelector('#datepicker');
+                            dateInput.value = dateStr;
+                        }
+                    });
+
+                    var dateInput = document.querySelector('#datepicker');
+                    dateInput.value = today;
+                });
+</script>
+</html>

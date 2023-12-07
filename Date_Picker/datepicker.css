@@ -86,8 +86,7 @@ span.flatpickr-weekday{
 .flatpickr-current-month{
     margin: auto;
 }
-.flatpickr-months{
-}
+
 .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{
     background-color: white;
     color: #634FBE;

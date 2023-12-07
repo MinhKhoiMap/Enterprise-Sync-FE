@@ -32,10 +32,10 @@ label{
     font-weight: bold;
 }
 .sb_background{
-    padding: 6px;
     width: 542px;
     height: 628px;
     margin-bottom: 10px;
+    padding: 0%;
     
 }
 .infor{
@@ -53,9 +53,14 @@ label{
     border-radius: 10px;
     margin: 0%;
     font-family: open sans light;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
 }
 .spacing{
     margin-top: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 .custominfor{
     font-family: open sans light;
@@ -71,6 +76,10 @@ label{
 .order_input{
     border: 1px solid #767676;
     outline: none;
+    margin: auto;
+    padding: 0%;
+    width: 251px;
+    padding-left: 10px;
 }
 .custom_input:placeholder{
     font-family: open sans light;
@@ -82,8 +91,8 @@ label{
     background-color: white;
     border-radius: 15px;
     padding: 12px 20px;
-    margin-right: 13px;
     margin-bottom: 10px;
+    margin-right: 13px;
 }
 .backgr_right{
     width: 542px;
@@ -98,18 +107,19 @@ label{
     height: 40px;
     border: 1px solid #767676;
     background-color: transparent;
-    border-radius: 15px;
-    margin-bottom: 25px;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 2px;
 }
 input::placeholder {
     font-family: open sans light;
     color: #767676;
   } 
 #search_order_res{
-    width: 502px;
-    height: 336px;
+    width: 500px;
+    height: fit-content;
     border-radius: 8px;
-    overflow-y: scroll;
+    border: 1px solid #767676 ;
 }
 #totalPrice{
     padding: 0%;
@@ -134,5 +144,94 @@ input::placeholder {
     padding: 0%;
 
 }
+tr{
+    width:480px ;
+    height: 36px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+td{
+    color: #301E67;
+    font-size: 16px;
+    font-family: open sans light;
+    
+}
+#search_order{
+    width: 500px;
+    height: 300px;
+    overflow-y: scroll;
+    border: 0.5px solid #767676;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+#content {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 252px;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    border: 1px solid #301E67;
+    margin: 0 1 0 0;
+   }
+   #content1 {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 252px;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 1px solid #301E67;
+    margin: 0 1 0 0;
+   }
+
+p{
+    margin: auto;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-family: open sans light;
+    cursor: pointer;
+}
+p:hover{
+    background-color: #DCD4E1;
+    color: #301E67;
+}
+h3{
+    font-size: 16px;
+    width: 251px;
+    height: 52px;
+    background-color: #301E67;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-left: 15px;
+    font-family: open sans light;
+    font-weight: bold;
+
+}
+#datepicker{
+    width: 85%;
+    height: 54px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+#dropdownMenuButton{
+    width: 15%;
+    height: 52px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
 
 
