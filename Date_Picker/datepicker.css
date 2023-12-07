@@ -30,3 +30,74 @@ input{
     font-family: "open sans light";
     src: url(fonts/OpenSans_SemiCondensed-Light.ttf);
 }
+@font-face {
+    font-family: "open sans bold";
+    src: url(fonts/OpenSans_SemiCondensed-SemiBold);
+}
+.flatpickr-calendar{
+    background-color: #634FBE;
+    width: 343px;
+    padding: 0 15px;
+    padding-bottom: 15px;
+}
+.flatpickr-innerContainer{
+    margin: 0 auto;
+}
+span.flatpickr-day{
+    color: white;
+    font-family: open sans light;
+    width: 45px;
+    border-radius: 6px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+span.flatpickr-day:hover{
+    color: #634FBE;
+    background-color: white;
+}
+
+.flatpickr-day prevMonthDay{
+    color: #767676;
+}
+span.flatpickr-weekday{
+    color: white;
+    margin-top: 15px;
+}
+.flatpickr-weekdaycontainer{
+    color: white;
+}
+.flatpickr-current-month input.cur-year {
+    color: white;
+    font-family: open sans;
+    font-weight: bold;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months{
+    color: white;
+    font-family: open sans;
+    font-weight: bold;
+
+}
+.flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg{
+    color: white;
+}
+.flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover, .flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.notAllowed, .flatpickr-day.notAllowed.prevMonthDay, .flatpickr-day.notAllowed.nextMonthDay{
+    color: #767676;
+}
+.flatpickr-current-month{
+    margin: auto;
+}
+.flatpickr-months{
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{
+    background-color: white;
+    color: #634FBE;
+}
+path{
+    color: white;
+}
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange, .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.endRange.nextMonthDay {
+    color: #634FBE;
+    background-color: white;
+    border: none;
+    outline: none;
+}
