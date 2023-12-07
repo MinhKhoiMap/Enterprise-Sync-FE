@@ -1,7 +1,5 @@
 const searchInput = document.getElementById("search-product__input")
 
-console.log([searchInput])
-
 searchInput.oninput = (e) => {
     fetch(`https://1d86-171-248-168-162.ngrok-free.app/api/products?product_name=${e.target.value}&platform=Shopee`)
         .then(response => response.json())
@@ -55,10 +53,11 @@ searchInput.oninput = (e) => {
                 searchProductRes.innerHTML = "<p class='text-center'>No products found</p>"
             }
 
-            console.log(res)
+            // console.log(res)
         }).catch(err => {
             console.log(err);
         })
+
         function hideSearchResults() {
             document.querySelector("#search_order_res").style.display = "none";
         }
