@@ -240,3 +240,16 @@ axios.get(apiUrl)
 
   });
 
+  function showLogoutConfirmation() {
+    
+    var confirmation = confirm("Are you sure you want to log out?");
+
+    
+    if (confirmation) {
+      
+        window.location.href = "../../login.html";
+    } else {
+      
+        console.log("Log out canceled");
+    }
+}
