@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Sync | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./content.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Sidebar-->
+        <div class="sidebar">
+            <div class="h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <div class="d-flex justify-content-center">
+                        <div class="logo">
+                            <img src="../../img/Group 1 (2).svg" style="width: 38.072px; height: 35.103px" />
+                            <img src="../../img/Group (2).svg"
+                                style="width: 94.392px; height: 35.022px; margin-top: 8.5px" />
+                        </div>
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        <li class="nav-item p-0 rounded-3 nav-item__active" id="dashboard">
+                            <a class="nav-link" href="">
+                                <img class="icon_nav" src="../../img/dashboard.svg" />
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item p-0 rounded-3" id="analysis">
+                            <a class="nav-link" href="../../pages/AnalysisPage/analysis.html">
+                                <img class="icon_nav" src="../../img/analysis.svg" />
+                                Analysis
+                            </a>
+                        </li>
+                        <li class="nav-item p-0 rounded-3" id="setting">
+                            <a class="nav-link" href="#">
+                                <img class="icon_nav" src="../../img/setting.svg" />
+                                Setting
+                            </a>
+                        </li>
+                        <li class="nav-item p-0 rounded-3" id="add_order">
+                            <a class="nav-link" href="../../pages/AddOrderPage/confirm.html">
+                                <img class="icon_nav" src="../../img/add_order.svg" />
+                                Add Order
+                            </a>
+                        </li>
+                        <li class="nav-item  p-0 rounded-3" id="gethelp">
+                            <a class="nav-link" href="#">
+                                <img class="icon_nav" src="../../img/gethelp.svg" />
+                                Get Help
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="nav_item6">
+                    <a class="nav-link" href="#">
+                        <img class="icon_nav" src="../../img/Logout_icon.svg" />
+                        Log out
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom d-flex justify-content-end">
+                <img class="icon_user" src="../../img/Avatar.svg" />
+            </nav>
+            <div class="container-fluid w-100 dashboardPage">
+                <div class=" col-8">
+                    <div class="row d-flex">
+                        <h1 id="dashboardTitle" class="col-8">Dash Board</h1>
+                        <div class="col-4 justify-content-end pagination">
+                            <button id="first" disabled><img src="../../src/Pagination_icon_first.png" alt=""></button>
+                            <button id="previous" disabled><img src="../../src/previous.png" alt=""></button>
+                            <button id="page1" class="active">1</button>
+                            <button id="page2">2</button>
+                            <button id="page3">3</button>
+                            <button id="next"><img src="../../src/Pagination_icon_next.png" alt=""></button>
+                            <button id="last"><img src="../../src/Pagination_icon_last.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" id="body_content">
+                    <table id="contentTable" style="border: none;">
+                        <thead>
+                            <tr>
+                                <th style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;">Order Id</th>
+                                <th>Order day</th>
+                                <th>Chanel</th>
+                                <th>Total Price</th>
+                                <th style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contentTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="./content.js"></script>
+    <script src="./pagination.js"></script>
+</body>
+
+</html>

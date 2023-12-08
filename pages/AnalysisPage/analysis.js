@@ -7,25 +7,25 @@ console.log([navItemList.children], "navItemList");
 let clicking = false;
 for (let child of navItemList.children) {
   
-  child.addEventListener("click", () => {
+  // child.addEventListener("click", () => {
 
-    for (let child of navItemList.children)
-      if (child.classList.contains("nav-item__active")) {
+  //   for (let child of navItemList.children)
+  //     if (child.classList.contains("nav-item__active")) {
         
-        let itemName = child.getAttribute("id");
-        const imageChild = child.children[0].children[0];
-        console.log(itemName, "falsjdkf");
-        imageChild.setAttribute("src", `../../img/${itemName}.svg`);
-        child.classList.remove("nav-item__active");
-      }
-    clicking=true;
-    let itemName = child.getAttribute("id");
-    const imageChild = child.children[0].children[0];
-    console.log(itemName, "falsjdkf");
-    imageChild.setAttribute("src", `../../img/${itemName}_click.svg`);
+  //       let itemName = child.getAttribute("id");
+  //       const imageChild = child.children[0].children[0];
+  //       console.log(itemName, "falsjdkf");
+  //       imageChild.setAttribute("src", `../../img/${itemName}.svg`);
+  //       child.classList.remove("nav-item__active");
+  //     }
+  //   clicking=true;
+  //   let itemName = child.getAttribute("id");
+  //   const imageChild = child.children[0].children[0];
+  //   console.log(itemName, "falsjdkf");
+  //   imageChild.setAttribute("src", `../../img/${itemName}_click.svg`);
 
-    child.classList.add("nav-item__active");
-  });
+  //   child.classList.add("nav-item__active");
+  // });
   child.addEventListener("mouseenter", () => {
     let itemName = child.getAttribute("id");
     const imageChild = child.querySelector(".icon_nav");
@@ -77,6 +77,7 @@ const data = {
             yAxisKey: 'amount.success',
         },
         barThickness:30,
+        borderRadius: 5,
     },
     {
         label: 'Failed Order',
@@ -89,6 +90,7 @@ const data = {
             yAxisKey: 'amount.failed'
         },
         barThickness:30,
+        borderRadius:5
     }]
 };
 
@@ -104,17 +106,16 @@ const config = {
         },
         scales: {
             y: {
-                
                 beginAtZero: true
             }
         },
         plugins: {
             legend: {
-                position: 'bottom', // Đặt vị trí của legend ở dưới
-                align: 'start', // Canh lề trái
+                position: 'bottom', 
+                align: 'start', 
                 labels: {
-                    usePointStyle: true, // Sử dụng hình tròn cho label
-                    boxWidth: 10 // Kích thước của hình tròn
+                    usePointStyle: true, 
+                    boxWidth: 10
                 },
                
             }
@@ -167,3 +168,138 @@ const doughnutChart = new Chart(
     document.getElementById('doughnutChart'),
     config2
 );
+const month = [{ month: 'Oct', dateMonth: ['Nov 1', 'Nov 5', 'Nov 10', 'Nov 15', 'Nov 20'] },{ month: 'Nov', dateMonth: ['Nov 1', 'Nov 5', 'Nov 10', 'Nov 15', 'Nov 20'] }];
+const monthdata = [{ month: 'Oct', amount: [14, 22, 11, 21,35] },{ month: 'Nov', amount: [10, 20, 13, 15, 30] }];
+
+
+// Lấy thẻ canvas và context của nó
+const canvas = document.getElementById('lineChart');
+const ctx = canvas.getContext('2d');
+
+const canvas1 = document.getElementById('lineChart1');
+const ctx1 = canvas1.getContext('2d');
+
+const canvas2 = document.getElementById('lineChart2');
+const ctx2 = canvas2.getContext('2d');
+
+// Tạo gradient cho fill
+const gradient = ctx.createLinearGradient(0, 0, 0, 350);
+gradient.addColorStop(0, 'rgba(151, 71, 255, 0.50)', 'rgba(217, 217, 217, 0.00)'); // Bắt đầu với một màu nhạt
+gradient.addColorStop(1, 'rgba(217, 217, 217, 0.00)'); // Kết thúc với màu trong suốt
+
+const data2 = {
+    labels: month[0].dateMonth,
+    datasets: [{
+        label: month[0].month,
+        borderColor: 'rgba(101, 101, 117, 0.7)',
+        data: monthdata[0].amount,
+        tension: 0.4,
+        borderDash: [10, 2],
+
+
+    },
+    {
+      label: month[1].month,
+      borderColor: 'rgba(99, 79, 190, 1)',
+      data: monthdata[1].amount,
+      tension: 0.4,
+      fill: true,
+      backgroundColor:gradient,
+
+  }
+  ]
+};
+
+const plugin = {
+  beforeInit(chart) {
+    
+    const originalFit = chart.legend.fit;
+
+    
+    chart.legend.fit = function fit() {
+      
+      originalFit.bind(chart.legend)();
+      
+      this.height += 15;
+    }
+  }
+}
+
+const config3 = {
+    type: 'line',
+    data: data2,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+          
+          legend: {
+              position:'top', 
+              align: 'end',
+             
+              labels: {
+                  usePointStyle: true, 
+                  boxWidth: 10
+              },
+              padding: {
+               
+                bottom: 20,
+         
+            }
+          }
+      },
+      
+    },
+    plugins: [plugin]
+};
+
+
+ctx.fillStyle = gradient;
+
+
+const lineChart = new Chart(ctx, config3);
+
+const lineChart1 = new Chart(ctx1,config3);
+
+const lineChart2 = new Chart(ctx2,config3);
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Dữ liệu
+  var success = 70;
+  var failed = 30;
+
+  var success1 = 60;
+  var failed1 = 40;
+
+  var success2 = 30;
+  var failed2 = 70;
+
+  // Tổng số
+  var total = success + failed;
+
+
+
+  // Tính phần trăm
+  var successPercentage = (success / total) * 100;
+  var failedPercentage = (failed / total) * 100;
+
+  var successPercentage1 = (success1 / total) * 100;
+  var failedPercentage1 = (failed1 / total) * 100;
+
+  var successPercentage2 = (success2 / total) * 100;
+  var failedPercentage2 = (failed2 / total) * 100;
+
+  // Cập nhật chiều rộng của thanh tiến triển dựa trên phần trăm
+  document.getElementById("successBar").style.width = successPercentage + "%";
+  document.getElementById("failedBar").style.width = failedPercentage + "%";
+  document.getElementById("successBar1").style.width = successPercentage1 + "%";
+  document.getElementById("failedBar1").style.width = failedPercentage1 + "%";
+  document.getElementById("successBar2").style.width = successPercentage2 + "%";
+  document.getElementById("failedBar2").style.width = failedPercentage2 + "%";
+});
