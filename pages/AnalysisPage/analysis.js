@@ -303,3 +303,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("successBar2").style.width = successPercentage2 + "%";
   document.getElementById("failedBar2").style.width = failedPercentage2 + "%";
 });
+
+
+function showLogoutConfirmation() {
+
+  var confirmation = confirm("Are you sure you want to log out?");
+
+
+  if (confirmation) {
+
+      window.location.href = "../../login.html";
+  } else {
+
+      console.log("Log out canceled");
+  }
+}
