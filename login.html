@@ -25,10 +25,7 @@
         <div class="card-body">
           <div class="header">
             <h1>Login</h1>
-            <p>
-              New user?
-              <a href="/pages/Register/index.html">Create an account</a>
-            </p>
+            <p>New user? <a href="/pages/Register/index.html">Create an account</a></p>
           </div>
           <form id="login-form" onSubmit="handleLogin(event)">
             <div class="mb-3">
@@ -39,6 +36,7 @@
                 id="username"
                 name="username"
               />
+              <span id="usernameError" class="error"></span>
             </div>
             <div class="mb-3">
               <label for="password">Password</label>
@@ -56,7 +54,7 @@
                   <!-- <i class="fa-regular fa-eye"></i> -->
                 </div>
               </div>
-              <p class="wrong-label">Password wrong</p>
+              <span id="passwordError" class="error"></span>
             </div>
             <a
               class="d-block"
@@ -66,7 +64,7 @@
             >
 
             <div class="d-flex justify-content-center">
-              <button id="submit_btn" type="submit" class="btn btn-primary">
+              <button id="submit_btn" type="button" onclick="validateAndContinue()" class="btn btn-primary">
                 Log in
               </button>
             </div>

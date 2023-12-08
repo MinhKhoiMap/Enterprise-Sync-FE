@@ -45,7 +45,7 @@
             <p>Create an account</p>
           </div>
           <div class="subtitle text-center">
-            <p>Already have an account? <a href="login.html">Log In</a></p>
+            <p>Already have an account? <a href="../../login.html">Log In</a></p>
           </div>
           <!--Input-->
           <form>
@@ -75,14 +75,15 @@
                 <span id="confirmPasswordError" class="error"></span>
               </div>
             </div>
-            <!--Continue Button-->
-            <div class="d-grid gap-2 col-4 mx-auto pt-3">
-              <button class="btn continue_btn rounded-5 text-white fw-bold" type="button"
-                onclick="validateAndContinue('2')">
-                Continue
-              </button>
-            </div>
           </form>
+          <!--Continue Button-->
+          <div class="d-grid gap-2 col-4 mx-auto pt-3">
+            <button class="btn continue_btn rounded-5 text-white fw-bold" type="button"
+              onclick="validateAndContinue('2')">
+              Continue
+            </button>
+          </div>
+
           <!--Divider-->
           <div class="divider d-flex flex-row justify-content-center">
             <div class="line1 align-self-center"></div>
@@ -109,14 +110,14 @@
           </div>
           <!--Input-->
           <form>
-          <div class="input mt-5">
-            <div class="mb-3">
-              <label for="exampleFormControlInput4" class="form-label">Your business name</label>
-              <input type="text" class="form-control mail_business" id="exampleFormControlInput4" />
-              <span id="bussinessError" class="error"></span>
+            <div class="input mt-5">
+              <div class="mb-3">
+                <label for="exampleFormControlInput4" class="form-label">Your business name</label>
+                <input type="text" class="form-control mail_business" id="exampleFormControlInput4" />
+                <span id="bussinessError" class="error"></span>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
           <!--Form-->
           <div class="d-flex flex-column mb-3 align-items-center" id="option_shopee">
             <div class="option accordion-item mt-4">
@@ -129,21 +130,21 @@
               <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#option_shopee">
                 <div class="accordion-body mt-3">
                   <form>
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput5" class="form-label">Email/Phone Number</label>
-                    <input type="text" class="form-control mail_business" id="exampleFormControlInput5" />
-                    <span id="shopeeEmailError1" class="error"></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput6" class="form-label">Password</label>
-                    <div class="d-flex passwordField">
-                      <input type="password" class="form-control" id="exampleFormControlInput6" />
-
-                      <i class="d-flex fa-regular fa-eye-slash align-items-center"
-                        onclick="togglePasswordVisibility('exampleFormControlInput6',this)"></i>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput5" class="form-label">Email/Phone Number</label>
+                      <input type="text" class="form-control mail_business" id="exampleFormControlInput5" />
+                      <span id="shopeeEmailError1" class="error"></span>
                     </div>
-                    <span id="shopeePasswordError1" class="error"></span>
-                  </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput6" class="form-label">Password</label>
+                      <div class="d-flex passwordField">
+                        <input type="password" class="form-control" id="exampleFormControlInput6" />
+
+                        <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                          onclick="togglePasswordVisibility('exampleFormControlInput6',this)"></i>
+                      </div>
+                      <span id="shopeePasswordError1" class="error"></span>
+                    </div>
                   </form>
                   <div class="policy1 text-danger">
                     We collect your Shopee account solely to track business
@@ -167,22 +168,22 @@
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#option_shopee">
                 <div class="accordion-body mt-3">
                   <form>
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput7" class="form-label">Email/Phone Number</label>
-                    <input type="text" class="form-control mail_business" id="exampleFormControlInput7" />
-                    <span id="shopeeEmailError2" class="error"></span>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput8" class="form-label">Password</label>
-                    <div class="d-flex passwordField">
-                      <input type="password" class="form-control" id="exampleFormControlInput8" />
-
-                      <i class="d-flex fa-regular fa-eye-slash align-items-center"
-                        onclick="togglePasswordVisibility('exampleFormControlInput8',this)"></i>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput7" class="form-label">Email/Phone Number</label>
+                      <input type="text" class="form-control mail_business" id="exampleFormControlInput7" />
+                      <span id="shopeeEmailError2" class="error"></span>
                     </div>
-                    <span id="shopeePasswordError2" class="error"></span>
-                  </div>
-                </form>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput8" class="form-label">Password</label>
+                      <div class="d-flex passwordField">
+                        <input type="password" class="form-control" id="exampleFormControlInput8" />
+
+                        <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                          onclick="togglePasswordVisibility('exampleFormControlInput8',this)"></i>
+                      </div>
+                      <span id="shopeePasswordError2" class="error"></span>
+                    </div>
+                  </form>
                   <div class="policy1 text-danger">
                     We collect your Shopee account solely to track business
                     data for analysis and optimization. Your privacy matters.
@@ -217,7 +218,7 @@
           </div>
           <!--Button Continue-->
           <div class="d-grid gap-2 col-4 mx-auto">
-            <button class="btn continue_btn rounded-5 text-white fw-bold" type="submit" id="liveToastBtn">
+            <button class="btn continue_btn rounded-5 text-white fw-bold" onClick="submitAccount()" type="submit" id="liveToastBtn">
               Continue
             </button>
           </div>
@@ -241,7 +242,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/37734cba31.js" crossorigin="anonymous"></script>
 </body>
 
