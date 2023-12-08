@@ -138,7 +138,7 @@ body {
   font-weight: 400 !important;
   border: 1px solid var(--xm-than, #767676) !important;
   font-size: 20px !important;
-  transition: background-color .2s ease-in;
+  transition: background-color 0.2s ease-in;
 }
 .app:hover {
   background-color: #634fbe !important;
@@ -155,66 +155,66 @@ body {
 .error {
   color: red;
 }
-body{
-    width: 100%;
-    height: 100vh;
-    background-image: url(src/Rectangle.png);
-    background-size: cover;
-    padding: 60px 70px;
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(src/Rectangle.png);
+  background-size: cover;
+  padding: 60px 70px;
 }
-.card { 
-    width: 711px;
-    height: 817px;
-    border-radius: 10px;
-    padding: 116px 68px;
-    margin: 0 auto;
-    margin-bottom: 60px;
-  }
-  .slogan{
-    font-family: poetsen one;
-    color: white;
-    margin-top: 170px !important;
+.card {
+  width: 711px;
+  height: 817px;
+  border-radius: 10px;
+  padding: 116px 68px;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
-p{
+.slogan {
+  font-family: poetsen one;
+  color: white;
+  margin-top: 170px !important;
+}
+p {
   width: 100%;
 }
 .header {
-    background-color: transparent;
-    color: #000000;
-    text-align: center;
-    margin-bottom: 55px;
-    font-size: 16px;
-    font-family: open sans;
-  }
-.header a {
-  color: #2E50FF !important;
+  background-color: transparent;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 55px;
+  font-size: 16px;
+  font-family: open sans;
 }
-  .header p {
-    margin-top: 27px;
-  }
-h1{
-    font-family: poetsen one;
-    color:  #301E67;
-    font-size: 50px;
+.header a {
+  color: #2e50ff !important;
+}
+.header p {
+  margin-top: 27px;
+}
+h1 {
+  font-family: poetsen one;
+  color: #301e67;
+  font-size: 50px;
 }
 .hr-container {
   position: relative;
   width: 100%;
-  margin-top: 55px; 
-  margin-bottom: 30px; 
+  margin-top: 55px;
+  margin-bottom: 30px;
   padding: 0 56px;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
   font-family: open sans;
- }
- 
- hr {
+}
+
+hr {
   border: none;
   height: 1px;
   background-color: #000;
- }
- 
- .text-over-hr {
+}
+
+.text-over-hr {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -222,36 +222,36 @@ h1{
   background-color: #fff;
   padding: 0 10px;
   color: #000;
- }
+}
 .card-body {
-    width: 100%;
-    background-color: transparent;
-    padding: 0%;
-  }
-a{
+  width: 100%;
+  background-color: transparent;
+  padding: 0%;
+}
+a {
   font-family: open;
   font-size: 16px;
   text-decoration: none;
   font-family: open sans;
 }
 
-label{
+label {
   color: #767676;
   margin-bottom: 3px;
   font-size: 16px;
   font-family: open sans;
 }
 #username {
-    width: 100%;
-    height: 31px;
-    outline: 0;
-    border: 0;
-    border-bottom: 1px solid #767676;
-    font-size: 16px;
-    color: #000000;
-    font-family: open sans;
+  width: 100%;
+  height: 31px;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid #767676;
+  font-size: 16px;
+  color: #000000;
+  font-family: open sans;
 }
-#password{
+#password {
   width: 100%;
   height: 31px;
   outline: 0;
@@ -260,52 +260,67 @@ label{
   color: #000000;
   font-family: open sans;
 }
-.password_border{
+.password_border {
   width: 100%;
   outline: 0;
   border: 0;
   border-bottom: 1px solid #767676;
 }
-#eye{
+
+.password_border--error {
+  border-color: red;
+}
+
+.wrong-label {
+  margin-top: 10px;
+  display: none;
+  font-size: 14rem;
+}
+
+.password_border--error ~ .wrong-label {
+  display: block;
+}
+
+#eye {
   cursor: pointer;
 }
 #submit_btn {
-    width: 140px;
-    height: 47px;
-    display: flex;
-    justify-content: center;
-    background-color: #634FBE;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    font-size: 18px; 
-    font-weight: bold;
-    margin-top: 30px;
-    font-family: open sans;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  #submit_btn:hover{
-    background-color: #DCD4E1;
-    color:  #301E67;
+  width: 140px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  background-color: #634fbe;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+  font-family: open sans;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#submit_btn:hover {
+  background-color: #dcd4e1;
+  color: #301e67;
 }
 @font-face {
-    font-family: "poetsen one";
-    src: url(fonts/PoetsenOne-Regular.ttf);
+  font-family: "poetsen one";
+  src: url(fonts/PoetsenOne-Regular.ttf);
 }
 @font-face {
   font-family: "open sans";
-  src: url(fonts/OpenSans-VariableFont_wdth\,wght.ttf);
+  src: url(fonts/OpenSans-VariableFont_wdth\wght.ttf);
 }
-.btn{
+.btn {
   display: flex;
   vertical-align: middle;
 }
-.other_login{
-  width:100%;
+.other_login {
+  width: 100%;
   outline: none;
   height: 52px;
   margin-top: 15px;
@@ -321,15 +336,14 @@ label{
   font-size: 16px;
   vertical-align: middle;
 }
-.other_login:hover{
-  background-color: #DCD4E1;
-  color:  #634FBE;
+.other_login:hover {
+  background-color: #dcd4e1;
+  color: #634fbe;
   border: none;
 }
-.other_login:active{
-  background-color: #634FBE;
+.other_login:active {
+  background-color: #634fbe;
   color: #fff;
-
 }
 .img_toast {
   width: 40px;

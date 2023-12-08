@@ -25,9 +25,12 @@
         <div class="card-body">
           <div class="header">
             <h1>Login</h1>
-            <p>New user? <a href="index.html">Create an account</a></p>
+            <p>
+              New user?
+              <a href="/pages/Register/index.html">Create an account</a>
+            </p>
           </div>
-          <form>
+          <form id="login-form" onSubmit="handleLogin(event)">
             <div class="mb-3">
               <label for="username">Email</label>
               <input
@@ -39,7 +42,9 @@
             </div>
             <div class="mb-3">
               <label for="password">Password</label>
-              <div class="password_border d-flex">
+              <div
+                class="password_border password_border--error d-flex position-relative"
+              >
                 <input
                   type="password"
                   class="form-text"
@@ -51,6 +56,7 @@
                   <!-- <i class="fa-regular fa-eye"></i> -->
                 </div>
               </div>
+              <p class="wrong-label">Password wrong</p>
             </div>
             <a
               class="d-block"
@@ -92,6 +98,9 @@
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/dotenv@16.3.1/lib/main.min.js" type="module"></script> -->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="showpass.js"></script>
+  <script src="./login.js"></script>
 </html>
