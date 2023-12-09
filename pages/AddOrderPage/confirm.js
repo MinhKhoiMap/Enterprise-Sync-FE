@@ -1,17 +1,14 @@
-// @ts-nocheck
-
-// @ts-nocheck
+const DOMAIN_SERVER = "http://localhost:5000";
 const navItemList = document.querySelector(".sidebar .sidebar-nav");
 
 console.log([navItemList.children], "navItemList");
 let clicking = false;
 for (let child of navItemList.children) {
-  
   // child.addEventListener("click", () => {
 
   //   for (let child of navItemList.children)
   //     if (child.classList.contains("nav-item__active")) {
-        
+
   //       let itemName = child.getAttribute("id");
   //       const imageChild = child.children[0].children[0];
   //       console.log(itemName, "falsjdkf");
@@ -29,33 +26,22 @@ for (let child of navItemList.children) {
   child.addEventListener("mouseenter", () => {
     let itemName = child.getAttribute("id");
     const imageChild = child.querySelector(".icon_nav");
-    if(child.classList.contains("nav-item__active"))
-    {
+    if (child.classList.contains("nav-item__active")) {
       imageChild.setAttribute("src", `../../img/${itemName}.svg`);
-    }
-    else{
+    } else {
       imageChild.setAttribute("src", `../../img/hover/${itemName}_hover.svg`);
     }
   });
   child.addEventListener("mouseleave", () => {
     let itemName = child.getAttribute("id");
     const imageChild = child.querySelector(".icon_nav");
-    if(child.classList.contains("nav-item__active"))
-    {
+    if (child.classList.contains("nav-item__active")) {
       imageChild.setAttribute("src", `../../img/${itemName}_click.svg`);
-    }
-    else{
+    } else {
       imageChild.setAttribute("src", `../../img/${itemName}.svg`);
     }
   });
-
 }
-
-
-
-
-
-
 
 const searchInput = document.getElementById("search-product__input");
 const search_order = [];
@@ -178,7 +164,7 @@ function renderCart() {
 
 searchInput.oninput = (e) => {
   fetch(
-    `https://9bf9-14-161-27-27.ngrok-free.app/api/products?product_name=${e.target.value}&platform=Shopee`
+    `${DOMAIN_SERVER}/api/products?product_name=${e.target.value}&platform=Shopee`
   )
     .then((response) => response.json())
     .then((res) => {
