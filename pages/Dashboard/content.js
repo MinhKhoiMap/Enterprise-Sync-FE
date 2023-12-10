@@ -1,9 +1,4 @@
-// @ts-nocheck
-
-// @ts-nocheck
 const navItemList = document.querySelector(".sidebar .sidebar-nav");
-
-// console.log([navItemList.children], "navItemList");
 
 let clicking = false;
 for (let child of navItemList.children) {
@@ -27,263 +22,115 @@ for (let child of navItemList.children) {
   });
 }
 
-let apiUrl = "YOUR_API_URL"; // Replace this with your actual API URL
-
-// Define the sample data to use in case the fetch from the API fails
-let sampleData = [
-  {
-    orderId: 1,
-    orderDay: "2022-03-01",
-    chanel: "Shopee",
-    totalPrice: 150,
-    status: "Done",
-  },
-  {
-    orderId: 2,
-    orderDay: "2022-03-02",
-    chanel: "Tiki",
-    totalPrice: 150,
-    status: "Done",
-  },
-  {
-    orderId: 3,
-    orderDay: "2022-03-03",
-    chanel: "TikTokShop",
-    totalPrice: 100,
-    status: "Pending",
-  },
-  {
-    orderId: 4,
-    orderDay: "2022-03-03",
-    chanel: "Lazada",
-    totalPrice: 100,
-    status: "Return",
-  },
-  {
-    orderId: 5,
-    orderDay: "2022-03-03",
-    chanel: "Tiki",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 6,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 7,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 8,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 9,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 10,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-  {
-    orderId: 11,
-    orderDay: "2022-03-03",
-    chanel: "Sendo",
-    totalPrice: 100,
-    status: "Done",
-  },
-];
+const apiUrl = "http://localhost:5000"; // Replace this with your actual API URL
+let currentPage = 1;
+let totalPage = 1;
 
 // If the fetch from the API fails, use the sample data instead
-axios
-  .get(apiUrl)
-  .then((response) => {
-    function StatusComponent(props) {
-      const statusDiv = document.createElement("div");
+async function handleRenderOrder() {
+  axios
+    .get(`${apiUrl}/api/orders?page=${currentPage}`, {
+      headers: {
+        authorization: localStorage.getItem("user_token"),
+      },
+    })
+    .then((res) => {
+      document.getElementById("contentTableBody").innerHTML = "";
+      return res.data;
+    })
+    .then((response) => {
+      const { data, total_page } = response;
 
-      const img = document.createElement("img");
-      img.src = props.imgSrc;
-      img.alt = props.imgAlt;
+      totalPage = total_page;
 
-      // Append the img element to the statusDiv
-      statusDiv.appendChild(img);
+      function StatusComponent(props) {
+        const statusDiv = document.createElement("div");
 
-      // Add some spacing between the image and the text
-      statusDiv.appendChild(document.createTextNode(" "));
+        const img = document.createElement("img");
+        img.src = props.imgSrc;
+        // img.alt = props.imgAlt;
 
-      // Add the status text
-      statusDiv.appendChild(document.createTextNode(props.status));
+        // Append the img element to the statusDiv
+        statusDiv.appendChild(img);
 
-      // Apply the status-specific CSS class
-      switch (props.status) {
-        case "Done":
-          statusDiv.classList.add("status-Done");
-          break;
-        case "Pending":
-          statusDiv.classList.add("status-Pending");
-          break;
-        case "Failed":
-          statusDiv.classList.add("status-Failed");
-          break;
-        case "Return":
-          statusDiv.classList.add("status-Return");
-          break;
+        // Add some spacing between the image and the text
+        statusDiv.appendChild(document.createTextNode(" "));
+
+        // Add the status text
+        statusDiv.appendChild(document.createTextNode(props.status));
+
+        // Apply the status-specific CSS class
+        switch (props.status) {
+          case "Done":
+            statusDiv.classList.add("status-Done");
+            break;
+          case "Pending":
+            statusDiv.classList.add("status-Pending");
+            break;
+          case "Return":
+            statusDiv.classList.add("status-Return");
+            break;
+        }
+        return statusDiv;
       }
 
-      return statusDiv;
-    }
+      data.forEach((order) => {
+        let row = document.createElement("tr");
 
-    response.data.forEach((order) => {
-      let row = document.createElement("tr");
+        console.log(order.status_order);
+        let orderId = document.createElement("td");
+        let orderDay = document.createElement("td");
+        let chanel = document.createElement("td");
+        let totalPrice = document.createElement("td");
+        let status = document.createElement("td");
 
-      let orderId = document.createElement("td");
-      let orderDay = document.createElement("td");
-      let chanel = document.createElement("td");
-      let totalPrice = document.createElement("td");
-      let status = document.createElement("td");
+        orderId.textContent = order.id_order;
+        orderDay.textContent = new Date(order.order_date).toLocaleDateString();
+        chanel.textContent = order.channel_platform;
+        totalPrice.textContent = order.total_price;
+        status.setAttribute("class", "status");
 
-      orderId.textContent = order.orderId;
-      orderDay.textContent = order.orderDay;
-      chanel.textContent = order.chanel;
-      totalPrice.textContent = order.totalPrice;
-      let imgUrl = "";
-      switch (order.status) {
-        case "Done":
-          imgUrl = "src/green.png";
-          break;
-        case "Pending":
-          imgUrl = "src/yellow.png";
-          break;
-        case "Failed":
-          imgUrl = "image.jpg";
-          break;
-        case "Return":
-          imgUrl = "src/pseudo.png";
-          break;
-      }
+        let imgUrl = "",
+          statusText;
+        switch (order.status_order) {
+          case "D":
+            statusText = "Done";
+            imgUrl = "../src/green.png";
+            break;
+          case "P":
+            statusText = "Pending";
+            imgUrl = "../../src/yellow.png";
+            break;
+          case "R":
+            statusText = "Return";
+            imgUrl = "../../src/pseudo.png";
+            break;
+        }
 
-      // Append the StatusComponent to the 'status' td
-      status.appendChild(
-        StatusComponent({
-          status: order.status,
-          imgSrc: imgUrl,
-        })
-      );
+        // Append the StatusComponent to the 'status' td
+        status.appendChild(
+          StatusComponent({
+            status: statusText,
+            imgSrc: imgUrl,
+          })
+        );
 
-      row.appendChild(orderId);
-      row.appendChild(orderDay);
-      row.appendChild(chanel);
-      row.appendChild(totalPrice);
-      row.appendChild(status);
+        row.appendChild(orderId);
+        row.appendChild(orderDay);
+        row.appendChild(chanel);
+        row.appendChild(totalPrice);
+        row.appendChild(status);
 
-      document.getElementById("contentTableBody").appendChild(row);
+        document.getElementById("contentTableBody").appendChild(row);
+      });
+    })
+    //Test with Sample data
+    .catch((error) => {
+      console.error("Error fetching data from API:", error);
     });
-  })
-  //Test with Sample data
-  .catch((error) => {
-    console.error("Error fetching data from API:", error);
+}
 
-    function StatusComponent(props) {
-      const statusDiv = document.createElement("div");
-
-      const img = document.createElement("img");
-      img.src = props.imgSrc;
-      img.alt = props.imgAlt;
-
-      // Append the img element to the statusDiv
-      statusDiv.appendChild(img);
-
-      // Add some spacing between the image and the text
-      statusDiv.appendChild(document.createTextNode(" "));
-
-      // Add the status text
-      statusDiv.appendChild(document.createTextNode(props.status));
-
-      // Apply the status-specific CSS class
-      switch (props.status) {
-        case "Done":
-          statusDiv.classList.add("status-Done");
-          break;
-        case "Pending":
-          statusDiv.classList.add("status-Pending");
-          break;
-        case "Failed":
-          statusDiv.classList.add("status-Failed");
-          break;
-        case "Return":
-          statusDiv.classList.add("status-Return");
-          break;
-      }
-
-      return statusDiv;
-    }
-
-    // If the fetch fails, use the sample data instead
-    sampleData.forEach((order) => {
-      // Define a new component called 'StatusComponent'
-      let row = document.createElement("tr");
-
-      let orderId = document.createElement("td");
-      let orderDay = document.createElement("td");
-      let chanel = document.createElement("td");
-      let totalPrice = document.createElement("td");
-      let status = document.createElement("td");
-
-      orderId.textContent = order.orderId;
-      orderDay.textContent = order.orderDay;
-      chanel.textContent = order.chanel;
-      totalPrice.textContent = order.totalPrice;
-      let imgUrl = "";
-      switch (order.status) {
-        case "Done":
-          imgUrl = "../../src/green.png";
-          break;
-        case "Pending":
-          imgUrl = "../../src/yellow.png";
-          break;
-        case "Failed":
-          imgUrl = "image.jpg";
-          break;
-        case "Return":
-          imgUrl = "../../src/pseudo.png";
-          break;
-      }
-
-      // Append the StatusComponent to the 'status' td
-      status.appendChild(
-        StatusComponent({
-          status: order.status,
-          imgSrc: imgUrl,
-        })
-      );
-
-      row.appendChild(orderId);
-      row.appendChild(orderDay);
-      row.appendChild(chanel);
-      row.appendChild(totalPrice);
-      row.appendChild(status);
-
-      document.getElementById("contentTableBody").appendChild(row);
-    });
-
-    // Initialize the pagination after loading the data
-  });
+handleRenderOrder();
 
 function showLogoutConfirmation() {
   var confirmation = confirm("Are you sure you want to log out?");

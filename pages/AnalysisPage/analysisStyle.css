@@ -125,6 +125,7 @@ li {
   align-items: stretch;
   display: flex;
   width: 100%;
+  overflow: auto;
   background-color: #e7e1ea;
 }
 .sidebar {
@@ -136,7 +137,7 @@ li {
   border-radius: 10px;
   background-color: white;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
   overflow-y: hidden;
   top: 0;
   left: 0;
@@ -147,13 +148,13 @@ li {
 }
 
 .main {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   min-height: 100vh;
-  width: 100%;
-  margin-right: 63px;
-  margin-left: 256px;
-  margin-bottom: 22px;
+  width: calc(100vw - 256px);
+  margin-right: 63px !important;
+  margin-left: 256px !important;
+  margin-bottom: 22px !important;
 }
 .logo {
   display: flex;
@@ -312,7 +313,7 @@ li {
 }
 
 .lineChart {
-  padding: 40px 20px 40px 20px;
+  padding: 40px 20px 40px 20px !important;
   position: relative;
   background: #fff;
   border-radius: 10px;
@@ -330,10 +331,16 @@ li {
   background-color: #301e67;
   border-radius: 10px;
 }
+
+#myMonthPicker > * {
+  cursor: pointer;
+}
+
 #myMonthPicker1 {
   width: 196px;
   min-height: 46px;
   direction: ltr;
+  cursor: pointer;
   border-radius: 10px;
 }
 #myMonthPicker2 {

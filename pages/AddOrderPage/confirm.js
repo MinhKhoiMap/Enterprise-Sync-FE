@@ -48,35 +48,37 @@ const search_order = [];
 
 class Order {
   total = 0;
-  order = [];
+  products = [];
   constructor(
     status_order,
     order_date,
     customer_name,
     customer_address,
     customer_phone,
-    platform
+    channel_platform
   ) {
     this.status_order = status_order;
     this.order_date = order_date;
     this.customer_name = customer_name;
     this.customer_address = customer_address;
     this.customer_phone = customer_phone;
-    this.platform = platform;
+    this.channel_platform = channel_platform;
   }
 
   addProduct(product) {
-    this.order.push(product);
+    this.products.push(product);
     this.total = this.calTotal();
   }
 
   removeProduct(id_product) {
-    this.order = this.order.filter((item) => item.id_product !== id_product);
+    this.products = this.products.filter(
+      (item) => item.id_product !== id_product
+    );
     this.total = this.calTotal();
   }
 
   minusQuantityProduct(id_product, num) {
-    this.order.forEach((item) => {
+    this.products.forEach((item) => {
       if (item.id_product === id_product) {
         item.quantity -= num;
         if (item.quantity < 1) {
@@ -88,9 +90,7 @@ class Order {
   }
 
   plusQuantityProduct(id_product, num) {
-    console.log(id_product);
-    console.log(this.order);
-    let t = this.order.map((item) => {
+    let t = this.products.map((item) => {
       console.log(item, "hmm");
       if (item.id_product === id_product) {
         item.quantity += num;
@@ -104,7 +104,7 @@ class Order {
 
   calTotal() {
     this.total = 0;
-    this.order.forEach((item) => {
+    this.products.forEach((item) => {
       console.log(this.total, item.price, item.quantity);
       this.total += item.price * item.quantity;
     });
@@ -126,21 +126,18 @@ function renderCart() {
   const productCart = document.getElementById("search_order");
   productCart.innerHTML = "";
 
-  currentOrder.order.forEach(({ id_product, name, price, quantity }) => {
+  currentOrder.products.forEach(({ id_product, name, price, quantity }) => {
     let temp = document.createElement("div");
     temp.setAttribute("class", "d-flex justify-content-between");
-    temp.setAttribute(
-      "style",
-      "width: 502px; background-color: white; text-align: center"
-    );
+    temp.setAttribute("style", "background-color: white; text-align: center");
 
-    temp.innerHTML = `<p style="width: 25%; margin-bottom:6px; ">${id_product}</p>
-        <p style="width: 40%; margin-bottom:6px; ">${name}</p>
-        <p style="width: 20%; margin-bottom:6px; ">${price}</p>
-        <div class="quan" style="display: block; width:15%; border: 0.5px solid #767676; margin-bottom: 6px; border-radius: 8px; ">
+    temp.innerHTML = `<p style="width: 20%; margin-bottom:6px; ">${id_product}</p>
+        <p class="search_order_name" style="width: 40%; margin-bottom:6px; flex: 1">${name}</p>
+        <p style="width: 20%; margin-bottom:6px;">${price}</p>
+        <div class="quan" style="display: flex; width:15%; border: 0.5px solid #767676; margin-bottom: 6px; border-radius: 8px; ">
             <button style="background-color:transparent; border:none; margin-right:2px" id="minus" onClick="handleMinusQuantity(event)"><img src="/img/minus.svg"></button>
             <label id="quantity" style="margin:0%">${quantity}</label>
-            <button style="background-color:transparent; border:none; margin-left:2px" id="plus"><img src="/img/minus.svg"></button>
+            <button style="background-color:transparent; border:none; margin-left:2px" id="plus"><img src="../../src/plus-solid.svg"></button>
         </div>`;
 
     const buttonPlus = temp.querySelector("button#plus");
@@ -159,12 +156,19 @@ function renderCart() {
     productCart.appendChild(temp);
   });
 
-  totalprice_order.innerText = currentOrder.calTotal();
+  let p = new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "VND",
+  })
+    .format(currentOrder.calTotal())
+    .toString();
+
+  totalprice_order.innerText = p.substring(0, p.length - 1);
 }
 
 searchInput.oninput = (e) => {
   fetch(
-    `${DOMAIN_SERVER}/api/products?product_name=${e.target.value}&platform=Shopee`
+    `${DOMAIN_SERVER}/api/products?product_name=${e.target.value}&platform=${currentOrder.channel_platform}`
   )
     .then((response) => response.json())
     .then((res) => {
@@ -195,10 +199,9 @@ searchInput.oninput = (e) => {
             "class",
             "d-flex justify-content-between productDiv"
           );
-          temp.setAttribute(
-            "style",
-            "width: 502px; background-color: white; text-align:center"
-          );
+          temp.setAttribute("style", "text-align:center");
+          temp.setAttribute("title", product_name);
+
           temp.innerHTML = `<p class="id" style="padding:0%; border-radius: 8px;">${id_product}</p>
                         <p class="product_name" style="padding:0%; border-radius: 8px;">${product_name}</p>
                         <p class="price" style="padding:0%; border-radius: 8px;">${price}</p>`;
@@ -220,6 +223,7 @@ searchInput.oninput = (e) => {
     .catch((err) => {
       console.log(err);
     });
+
   function hideSearchResults() {
     document.querySelector("#search_order_res").style.display = "none";
   }
@@ -232,3 +236,80 @@ searchInput.oninput = (e) => {
     e.stopPropagation();
   });
 };
+
+async function handleShowOrder() {
+  const customer_name = document.getElementById("name").value;
+  const customer_phone = document.getElementById("phonenumber").value;
+  const customer_address = document.getElementById("address").value;
+  const ttt = document.getElementById("tttttt");
+  const bodyContent = document.getElementById("body_content");
+
+  ttt.classList.add("d-none");
+  bodyContent.classList.remove("d-none");
+
+  currentOrder.customer_address = customer_address;
+  currentOrder.customer_phone = customer_phone;
+  currentOrder.customer_name = customer_name;
+
+  const showOrderName = document.getElementById("show_order_name");
+  const showOrderPhone = document.getElementById("show_order_phone");
+  const showOrderAddress = document.getElementById("show_order_address");
+  const showOrderChannel = document.getElementById("show_order_channel");
+  const showOrderDate = document.getElementById("show_order_date");
+  const showOrderStatus = document.getElementById("show_order_status");
+  const showOrderTotal = document.getElementById("show_order_total");
+
+  showOrderName.textContent = currentOrder.customer_name;
+  showOrderAddress.textContent = currentOrder.customer_address;
+  showOrderPhone.textContent = currentOrder.customer_phone;
+  showOrderChannel.textContent = currentOrder.channel_platform;
+  showOrderDate.textContent = currentOrder.order_date;
+  showOrderStatus.textContent = currentOrder.status_order;
+  showOrderTotal.textContent = currentOrder.total;
+
+  const frameDetail = document.getElementsByClassName("frame_detail")[0];
+
+  console.log(currentOrder.products, "flakjsfd");
+
+  frameDetail.innerHTML = currentOrder.products
+    .map((product) => {
+      return `
+        <div class="frame_detail_item">
+          <div class="row">
+            <div
+              class="col-2 d-flex align-items-center justify-content-center"
+            >
+              ${product.id_product}
+            </div>
+            <div
+              class="col-5 d-flex align-items-center justify-content-center border-bottom"
+            >
+              ${product.name}
+            </div>
+            <div
+              class="col-4 d-flex align-items-center justify-content-center border-bottom"
+            >
+              ${product.price}
+            </div>
+            <div class="col-1">
+              <div class="d-flex w-100 justify-content-center">
+                <div class="quantity">${product.quantity}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    `;
+    })
+    .join("");
+
+  alert("Add Order Success!");
+
+  // axios
+  //   .post(`${DOMAIN_SERVER}/api/orders`, currentOrder, {
+  //     headers: {
+  //       authorization: localStorage.getItem("user_token"),
+  //     },
+  //   })
+  //   .then((res) => console.log(res))
+  //   .catch((err) => console.log(err));
+}

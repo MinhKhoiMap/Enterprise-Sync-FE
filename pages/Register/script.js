@@ -40,6 +40,7 @@ function validateAndContinue(nextPage) {
         console.log("Kiểm tra không thành công. Không chuyển trang.");
     }
 }
+
 function validateAndContinue2(nextPage) {
 
     var businessName = document.getElementById("exampleFormControlInput4").value;

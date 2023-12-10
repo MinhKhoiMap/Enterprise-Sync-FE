@@ -16,7 +16,6 @@
   margin: 0%;
 }
 #body_content {
-  width: 894px;
   max-height: 645px;
   background-color: white;
   border-radius: 8px;
@@ -30,6 +29,11 @@
 
   padding: 0px;
 }
+
+#contentTableBody tr:last-child {
+  border: none;
+}
+
 #content_header {
   border-radius: 8px;
 }
@@ -50,16 +54,43 @@ th {
 tr {
   margin-top: 10px;
 }
+
+@keyframes live-show {
+  0% {
+    transform: translateX(10px);
+  }
+  10% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cancel {
+  0% {
+    transform: translateX(-10px);
+  }
+  10% {
+    transform: translateX(0);
+  }
+}
+
 table tbody tr {
   color: #301e67;
   font-size: 18px;
   font-family: open sans;
   text-align: center;
   border-bottom: 0.8px solid #767676;
+  padding: 10px 0;
+  animation: live-show 2s ease;
+}
+
+table tbody tr td.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 table tbody tr td {
-  height: 50px;
+  padding: 10px 0;
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 18px;
@@ -78,30 +109,34 @@ table tbody tr td {
 .status-Done {
   width: 74px;
   height: 30px;
+  font-size: 16px;
   border: 1px solid #87a173;
   border-radius: 15px;
-  font-family: open sans light;
+  font-family: open sans;
+  font-weight: 500;
   color: #87a173;
   background-color: #e0f8dd;
   text-align: center;
-  margin: auto;
-  display: block;
+  display: flex;
   align-items: center;
-  margin-top: 10px;
+  justify-content: space-evenly;
 }
+
 .status-Pending {
   width: 94px;
   height: 30px;
   border: 1px solid #f7c800;
   border-radius: 15px;
-  font-family: open sans light;
+  font-family: open sans;
+  font-weight: 500;
   color: #f7c800;
   background-color: #fff0d0;
   text-align: center;
-  margin: auto;
-  padding: auto;
   vertical-align: middle;
-  margin-top: 10px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .status-Failed {
   background-color: red;
@@ -111,22 +146,32 @@ table tbody tr td {
   height: 30px;
   border: 1px solid #ff8080;
   border-radius: 15px;
-  font-family: open sans light;
+  font-family: open sans;
+  font-weight: 500;
   color: #ff8080;
   background-color: #ffe4e4;
   text-align: center;
   margin: auto;
-  display: block;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 10px;
+  font-size: 16px;
 }
 
 .pagination {
-  display: block;
+  display: flex;
   margin: auto;
   padding: 0%;
   text-align: right;
 }
+
+.pagination button:disabled {
+  display: none;
+}
+
+
+.show_more,
 .pagination button {
   width: 25px;
   height: 25px;
@@ -143,7 +188,6 @@ table tbody tr td {
   font-weight: bold;
   font-family: open sans;
   transition-duration: 0.4s;
-  padding: 0%;
 }
 #previous {
   background-color: transparent;
