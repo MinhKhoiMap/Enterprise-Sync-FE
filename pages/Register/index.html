@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account | EnterpriseSync</title>
+  <link rel="stylesheet" href="./registercss.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container p-0">
+    <div class="row">
+      <div class="col-sm-6 icon_slogan mt-5">
+        <div class="logo">
+          <a href="#"><img src="../../img/Group 1.svg" />
+            <img src="../../img/Group.svg" style="margin-top: 34px" /></a>
+        </div>
+        <div class="slogan display-5 w-50">
+          <p>Easiest way to manage your business</p>
+        </div>
+      </div>
+      <div class="col-sm-6 bg-white rounded-5" id="container_login">
+        <div class="d-flex flex-row justify-content-center nav_list_btn" id="process">
+          <button class="circle active" onclick="activateButton(this)" data-frame="1">
+            1
+          </button>
+          <div class="line align-self-center"></div>
+          <button class="circle" onclick="activateButton(this)" data-frame="2" disabled>
+            2
+          </button>
+          <div class="line align-self-center"></div>
+          <button class="circle" onclick="activateButton(this)" data-frame="3" disabled>
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+
+        <!--Stage 1-->
+        <div class="frame_login" id="frame_login1">
+          <!--Title-->
+          <div class="title display-5 text-center">
+            <p>Create an account</p>
+          </div>
+          <div class="subtitle text-center">
+            <p>Already have an account? <a href="../../login.html">Log In</a></p>
+          </div>
+          <!--Input-->
+          <form>
+            <div class="input mt-5">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control shadow-none mail_business" id="exampleFormControlInput1" />
+                <span id="emailError" class="error"></span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Password</label>
+                <div class="d-flex passwordField">
+                  <input type="password" class="pass form-control shadow-none" id="exampleFormControlInput2" />
+                  <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                    onclick="togglePasswordVisibility('exampleFormControlInput2',this)"></i>
+                </div>
+                <span id="passwordError" class="error"></span>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput3" class="form-label">Confirm Password</label>
+                <div class="d-flex passwordField">
+                  <input type="password" class="pass form-control shadow-none" id="exampleFormControlInput3" />
+                  <div id="eye"></div>
+                  <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                    onclick="togglePasswordVisibility('exampleFormControlInput3',this)"></i>
+                </div>
+                <span id="confirmPasswordError" class="error"></span>
+              </div>
+            </div>
+          </form>
+          <!--Continue Button-->
+          <div class="d-grid gap-2 col-4 mx-auto pt-3">
+            <button class="btn continue_btn rounded-5 text-white fw-bold" type="button"
+              onclick="validateAndContinue('2')">
+              Continue
+            </button>
+          </div>
+
+          <!--Divider-->
+          <div class="divider d-flex flex-row justify-content-center">
+            <div class="line1 align-self-center"></div>
+            <div class="or align-content-center m-1">Or</div>
+            <div class="line1 align-self-center"></div>
+          </div>
+          <div class="d-flex flex-column mb-3 align-items-center">
+            <div class="app1 p-2 mt-4">
+              <img src="../../img/devicon_google.svg" />Continue with Google
+            </div>
+            <div class="app1 p-2 mt-4">
+              <img src="../../img/logos_facebook.svg" />Continue with Facebook
+            </div>
+          </div>
+        </div>
+        <!--Stage 2-->
+        <div class="frame_login" id="frame_login2">
+          <!--Title-->
+          <div class="title display-5 text-center">
+            <p>Create an account</p>
+          </div>
+          <div class="subtitle text-center">
+            <p>Already have an account? <a href="#">Log In</a></p>
+          </div>
+          <!--Input-->
+          <form>
+            <div class="input mt-5">
+              <div class="mb-3">
+                <label for="exampleFormControlInput4" class="form-label">Your business name</label>
+                <input type="text" class="form-control mail_business" id="exampleFormControlInput4" />
+                <span id="bussinessError" class="error"></span>
+              </div>
+            </div>
+          </form>
+          <!--Form-->
+          <div class="d-flex flex-column mb-3 align-items-center" id="option_shopee">
+            <div class="option accordion-item mt-4">
+              <h2 class="accordion-header">
+                <button class="app collapse p-2 w-100" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  My business already has a Shopee account
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#option_shopee">
+                <div class="accordion-body mt-3">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput5" class="form-label">Email/Phone Number</label>
+                      <input type="text" class="form-control mail_business" id="exampleFormControlInput5" />
+                      <span id="shopeeEmailError1" class="error"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput6" class="form-label">Password</label>
+                      <div class="d-flex passwordField">
+                        <input type="password" class="form-control" id="exampleFormControlInput6" />
+
+                        <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                          onclick="togglePasswordVisibility('exampleFormControlInput6',this)"></i>
+                      </div>
+                      <span id="shopeePasswordError1" class="error"></span>
+                    </div>
+                  </form>
+                  <div class="policy1 text-danger">
+                    We collect your Shopee account solely to track business
+                    data for analysis and optimization. Your privacy matters.
+                  </div>
+                  <div class="policy2">
+                    <p>
+                      For details, visit our <a href="#">Privacy Policy</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="option accordion-item mt-4">
+              <h2 class="accordion-header">
+                <button class="app collapsed p-2 w-100" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My business hasn't have a Shopee account yet
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#option_shopee">
+                <div class="accordion-body mt-3">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput7" class="form-label">Email/Phone Number</label>
+                      <input type="text" class="form-control mail_business" id="exampleFormControlInput7" />
+                      <span id="shopeeEmailError2" class="error"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput8" class="form-label">Password</label>
+                      <div class="d-flex passwordField">
+                        <input type="password" class="form-control" id="exampleFormControlInput8" />
+
+                        <i class="d-flex fa-regular fa-eye-slash align-items-center"
+                          onclick="togglePasswordVisibility('exampleFormControlInput8',this)"></i>
+                      </div>
+                      <span id="shopeePasswordError2" class="error"></span>
+                    </div>
+                  </form>
+                  <div class="policy1 text-danger">
+                    We collect your Shopee account solely to track business
+                    data for analysis and optimization. Your privacy matters.
+                  </div>
+                  <div class="policy2">
+                    <p>
+                      For details, visit our <a href="#">Privacy Policy</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Continue Button-->
+          <div class="d-grid gap-2 col-4 mx-auto">
+            <button class="btn continue_btn rounded-5 text-white fw-bold" type="button"
+              onclick="validateAndContinue2('3')">
+              Continue
+            </button>
+          </div>
+        </div>
+        </form>
+        <!--Stage 3-->
+        <div class="frame_login" id="frame_login3">
+          <!--Title-->
+          <div class="title display-5 text-center" id="title_stage3">
+            <p>Welcome to Enterprise Sync!</p>
+          </div>
+          <!--Image-->
+          <div class="img">
+            <img src="../../img/Frame 2.png" class="img-fluid" alt="..." />
+          </div>
+          <!--Button Continue-->
+          <div class="d-grid gap-2 col-4 mx-auto">
+            <button class="btn continue_btn rounded-5 text-white fw-bold" onClick="submitAccount()" type="submit" id="liveToastBtn">
+              Continue
+            </button>
+          </div>
+          <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="img/Property 1=full.png" class="img_toast rounded me-2" alt="..." />
+                <strong class="me-auto">EnSync</strong>
+                <small>Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">You have registered successfully</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/37734cba31.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

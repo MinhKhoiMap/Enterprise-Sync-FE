@@ -1,0 +1,171 @@
+@font-face {
+  font-family: Poetsen;
+  src: url("../../font/PoetsenOne-Regular.ttf");
+}
+@font-face {
+  font-family: OpenSans;
+  src: url("../../font/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+body{
+  background-image: url("../../img/Rectangle.png");
+  background-size: cover;
+}
+.slogan{
+  font-family: Poetsen;
+  color: white;
+  margin-top: 170px !important;
+}
+.frame_login{
+  padding: 0 68px !important;
+  height: 750px;
+  
+}
+
+.frame_login#frame_login3{
+padding: 0 45px !important;
+}
+.form-control{
+width: 500px !important;
+}
+.frame_login input {
+  outline: none;
+}
+.form-label{
+color: var(--xm-than, #767676);
+font-family: OpenSans;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+}
+#process{
+margin-top: 20px;
+}
+#container_login{
+margin-top: 20px;
+height: 865px !important;
+}
+.line {
+  width: 50px;
+  height: 1px;
+  border-style: solid;
+}
+
+.circle.active {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-purple, #301E67);
+  background: var(--primary-purple, #301E67);
+}
+
+.circle {
+  color: #301E67;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-purple, #301E67);
+  background: white;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+}
+.title{
+  margin-top: 40px !important ;
+  font-family: Poetsen;
+  color: #301E67;
+}
+.title#title_stage3{
+  font-size: 2.6rem ;
+}
+.subtitle{
+  font-family: OpenSans;
+}
+.form-control {
+  border: none !important; 
+  
+}
+.continue_btn{
+  background-color: #634FBE !important;
+}
+
+.continue_btn:hover{
+color: var(--cta-button, #634FBE) !important;
+
+background: var(--Hover-purple, #DCD4E1) !important;
+}
+
+.line1{
+  width: 180px;
+  height: 1px;
+  background-color: grey;
+  
+}
+.app{
+  font-family: OpenSans;
+  display: flex !important;
+  width: 575px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 15px !important;
+  border-radius: 30px !important;
+  background-color: white !important;
+  color: var(--xm-than, #767676) !important;
+  font-weight: 400 !important;
+  border: 1px solid var(--xm-than, #767676) !important;
+  font-size: 20px !important;
+}
+.app1{
+font-family: OpenSans;
+display: flex !important;
+width: 575px !important;
+justify-content: center !important;
+align-items: center !important;
+gap: 15px !important;
+border-radius: 30px !important;
+background-color: white !important;
+color: var(--xm-than, #767676) !important;
+font-weight: 400 !important;
+border: 1px solid var(--xm-than, #767676) !important;
+font-size: 20px !important;
+}
+.app:hover{
+background-color: #634FBE !important;
+color: white !important;
+}
+.app1:hover{
+color: var(--cta-button, #634FBE) !important;
+font-weight: 700 !important;
+background: var(--Hover-purple, #DCD4E1) !important;
+border: none !important;
+}
+.error{
+color: red;
+font-size: .72rem !important;
+}
+.img_toast{
+  width: 40px;
+  height: 20px;
+}
+.passwordField{
+border-bottom: 1px solid #301E67 !important; /* Thêm dòng kẻ ở dưới */
+border-radius: 0 !important; 
+}
+.mail_business{
+width: 512px !important;
+border-bottom: 1px solid #301E67 !important; /* Thêm dòng kẻ ở dưới */
+border-radius: 0 !important; 
+}
+.option{
+width: 512px !important;
+}

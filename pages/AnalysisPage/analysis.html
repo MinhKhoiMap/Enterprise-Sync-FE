@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis | Enterprise Sync</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./analysisStyle.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!--Sidebar-->
+      <div class="sidebar bottom-0">
+        <div class="h-100 d-flex flex-column justify-content-between">
+          <div class="sideMenu">
+            <div class="d-flex justify-content-center">
+              <div class="logo">
+                <img
+                  src="../../img/Group 1 (2).svg"
+                  style="width: 38.072px; height: 35.103px"
+                />
+                <img
+                  src="../../img/Group (2).svg"
+                  style="width: 94.392px; height: 35.022px; margin-top: 8.5px"
+                />
+              </div>
+            </div>
+            <ul class="sidebar-nav">
+              <li class="nav-item rounded-3" id="dashboard">
+                <a class="nav-link" href="../../pages/Dashboard/content.html">
+                  <img class="icon_nav" src="../../img/dashboard.svg" />
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item nav-item__active rounded-3" id="analysis">
+                <a class="nav-link" href="">
+                  <img class="icon_nav" src="../../img/analysis_click.svg" />
+                  Analysis
+                </a>
+              </li>
+              <li class="nav-item rounded-3" id="setting">
+                <a class="nav-link" href="#">
+                  <img class="icon_nav" src="../../img/setting.svg" />
+                  Setting
+                </a>
+              </li>
+              <li class="nav-item rounded-3" id="add_order">
+                <a
+                  class="nav-link"
+                  href="../../pages/AddOrderPage/confirm.html"
+                >
+                  <img class="icon_nav" src="../../img/add_order.svg" />
+                  Add Order
+                </a>
+              </li>
+              <li class="nav-item rounded-3" id="gethelp">
+                <a class="nav-link" href="#">
+                  <img class="icon_nav" src="../../img/gethelp.svg" />
+                  Get Help
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="nav_item6">
+            <a
+              class="nav-link"
+              href="javascript:void(0);"
+              onclick="showLogoutConfirmation()"
+            >
+              <img class="icon_nav" src="../../img/Logout_icon.svg" />
+              Log out
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <nav
+          class="navbar navbar-expand px-3 border-bottom d-flex justify-content-end"
+        >
+          <img class="icon_user" src="../../img/Avatar.svg" />
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <div class="container m-0">
+          <div class="row col-12 d-flex">
+            <h1 class="col-7">Overview</h1>
+            <div class="col-5 month-year">
+              <div
+                id="myMonthPicker"
+                class="input-group"
+                data-target="#myMonthFrame"
+                style="background-color: #301e67; border-radius: 10px"
+              >
+                <input
+                  type="text"
+                  class="form-control result"
+                  disabled
+                  style="
+                    height: 46px;
+                    background-color: transparent;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    text-align: center;
+                  "
+                />
+                <div class="input-group-append d-flex align-items-center">
+                  <span
+                    class="input-group-text"
+                    style="
+                      background-color: transparent;
+                      border: none;
+                      outline: none;
+                    "
+                    ><img src="../../img/dropdown.svg"
+                  /></span>
+                </div>
+              </div>
+
+              <div id="myMonthFrame" class="collapse">
+                <div class="card card-body">
+                  <div class="row" id="framebody">
+                    <div class="col-12 btn-group justify-content-center">
+                      <button
+                        id="prevYear"
+                        style="background-color: transparent; border: none"
+                      >
+                        <i class="fa fa-chevron-left"></i>
+                      </button>
+                      <label id="selectedYear"></label>
+                      <button
+                        id="nextYear"
+                        style="background-color: transparent; border: none"
+                      >
+                        <i class="fa fa-chevron-right"></i>
+                      </button>
+                    </div>
+                    <div class="col-12" id="calendarframe">
+                      <table>
+                        <tr>
+                          <td><button class="monthBtn">Jan</button></td>
+                          <td><button class="monthBtn">Feb</button></td>
+                          <td><button class="monthBtn">Mar</button></td>
+                        </tr>
+                        <tr>
+                          <td><button class="monthBtn">Apr</button></td>
+                          <td><button class="monthBtn">May</button></td>
+                          <td><button class="monthBtn">Jun</button></td>
+                        </tr>
+                        <tr>
+                          <td><button class="monthBtn">Jul</button></td>
+                          <td><button class="monthBtn">Aug</button></td>
+                          <td><button class="monthBtn">Sep</button></td>
+                        </tr>
+                        <tr>
+                          <td><button class="monthBtn">Oct</button></td>
+                          <td><button class="monthBtn">Nov</button></td>
+                          <td><button class="monthBtn">Dec</button></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row m-0 analysis justify-content-between">
+            <div class="col-xl-8 barChartBox p-5 mt-2">
+              <div class="title">
+                <p id="title1">Order Total</p>
+                <p id="title2">1560</p>
+                <p id="title3">November 2023</p>
+              </div>
+              <hr style="margin: 40px 0 40px 0; border-width: 2px" />
+              <div class="barchart" style="height: 300px">
+                <canvas id="Total_Bar_Chart"></canvas>
+              </div>
+            </div>
+            <div class="col-xl-3 doughnutChartBox flex-shrink-0 mt-2">
+              <div class="title">
+                <p id="title1">Order Total</p>
+                <p id="title2">1560</p>
+                <p id="title3">November 2023</p>
+              </div>
+              <div class="doughnutChart" style="width: 100%; max-width: 200px">
+                <canvas id="doughnutChart"></canvas>
+              </div>
+              <div
+                class="label container-fluid d-flex justify-content-center d-xl-block"
+              >
+                <div class="label1 row align-items-center">
+                  <div class="col-12 col-xl-9 p-0 d-flex align-items-center">
+                    <div class="circle" id="c1"></div>
+                    <div>Total Order</div>
+                  </div>
+                  <div class="index col-12 col-xl-3 d-flex">
+                    <div>24%</div>
+                    <img src="../../img/up_arrow.svg" />
+                  </div>
+                </div>
+                <div class="label2 row mt-2 align-items-center">
+                  <div class="col-12 col-xl-9 p-0 d-flex align-items-center">
+                    <div class="circle" id="c2"></div>
+                    <div>Total Canceled</div>
+                  </div>
+                  <div class="index col-12 col-xl-3 d-flex">
+                    <div>30%</div>
+                    <img src="../../img/up_arrow.svg" />
+                  </div>
+                </div>
+                <div class="label3 row mt-2 align-items-center">
+                  <div class="d-flex col-12 col-xl-9 p-0 align-items-center">
+                    <div class="circle" id="c3"></div>
+                    <div>Total Complete</div>
+                  </div>
+                  <div class="index col-12 col-xl-3 d-flex">
+                    <div>26%</div>
+                    <img src="../../img/down_arrow.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="mt-5">
+            <h1 style="color: var(--primary-purple, #301e67)">Shopee</h1>
+            <div class="row shopeeAnlysis">
+              <div class="col-12 col-xl-4">
+                <div class="container-fluid p-0">
+                  <div class="row">
+                    <div class="col-6 col-xl-12">
+                      <div class="revenue p-4 mt-3">
+                        <div class="title">
+                          <p id="title1">Revenue</p>
+                          <p id="title2">34.000.000</p>
+                          <p id="title3">vnd</p>
+                          <hr
+                            style="
+                              margin: 0px 0 0px 0;
+                              border-width: 1px;
+                              background: gray;
+                              opacity: 0.1;
+                            "
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-xl-12">
+                      <div class="status p-4 mt-3">
+                        <div class="title">
+                          <p id="title1">Status Overview</p>
+                        </div>
+                        <div class="progress_bar mt-3">
+                          <div id="successBar" class="bar"></div>
+                          <div id="failedBar" class="bar"></div>
+                        </div>
+                        <div class="factor d-flex gap-3">
+                          <div class="d-flex mt-4">
+                            <div
+                              class="circle"
+                              id="c2"
+                              style="margin-top: 2px; width: 10px; height: 10px"
+                            ></div>
+                            <div style="font-size: 10px">Success Order</div>
+                          </div>
+                          <div class="d-flex mt-4">
+                            <div
+                              class="circle"
+                              id="c3"
+                              style="margin-top: 2px; width: 10px; height: 10px"
+                            ></div>
+                            <div style="font-size: 10px">Failed Order</div>
+                          </div>
+                        </div>
+                        <hr
+                          style="
+                            margin: 0px 0 0px 0;
+                            border-width: 1px;
+                            background: gray;
+                            opacity: 0.1;
+                          "
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xl-8 mt-3">
+                <div class="lineChart container-fluid h-100">
+                  <div class="row">
+                    <div class="titleLineChart d-flex gap-5">
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <p id="title1">Revenue Statistics</p>
+                      </div>
+                      <div class="col-5 month-year p-0">
+                        <div
+                          id="myMonthPicker1"
+                          class="input-group"
+                          data-target="#myMonthFrame1"
+                          style="background-color: #fff; border-radius: 10px"
+                        >
+                          <input
+                            type="text"
+                            class="form-control result1 p-0"
+                            disabled
+                            style="
+                              height: 46px;
+                              background-color: white;
+                              color: #767676;
+                              border: none;
+                              outline: none;
+                              text-align: center;
+                            "
+                          />
+                          <div
+                            class="input-group-append d-flex justify-content-center"
+                          >
+                            <span
+                              class="input-group-text"
+                              style="
+                                background-color: white;
+                                border: none;
+                                outline: none;
+                              "
+                              ><img src="../../img/Vector.svg"
+                            /></span>
+                          </div>
+                        </div>
+
+                        <div id="myMonthFrame1" class="collapse">
+                          <div class="card card-body">
+                            <div class="row" id="framebody1">
+                              <div
+                                class="col-12 btn-group justify-content-center"
+                              >
+                                <button
+                                  id="prevYear1"
+                                  style="
+                                    background-color: transparent;
+                                    border: none;
+                                  "
+                                >
+                                  <i class="fa fa-chevron-left"></i>
+                                </button>
+                                <label id="selectedYear1"></label>
+                                <button
+                                  id="nextYear1"
+                                  style="
+                                    background-color: transparent;
+                                    border: none;
+                                  "
+                                >
+                                  <i class="fa fa-chevron-right"></i>
+                                </button>
+                              </div>
+                              <div class="col-12" id="calendarframe1">
+                                <table>
+                                  <tr>
+                                    <td>
+                                      <button class="monthBtn1">Jan</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Feb</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Mar</button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <button class="monthBtn1">Apr</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">May</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Jun</button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <button class="monthBtn1">Jul</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Aug</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Sep</button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <button class="monthBtn1">Oct</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Nov</button>
+                                    </td>
+                                    <td>
+                                      <button class="monthBtn1">Dec</button>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <canvas
+                      id="lineChart"
+                      style="position: relative; height: 40vh; width: 80vw"
+                    ></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <h1 style="color: var(--primary-purple, #301e67)">Lazada</h1>
+          <div class="row shopeeAnlysis">
+            <div class="col-12 col-xl-4">
+              <div class="container-fluid p-0">
+                <div class="row">
+                  <div class="col-6 col-xl-12">
+                    <div class="revenue p-4 mt-3">
+                      <div class="title">
+                        <p id="title1">Revenue</p>
+                        <p id="title2">34.000.000</p>
+                        <p id="title3">vnd</p>
+                        <hr
+                          style="
+                            margin: 0px 0 0px 0;
+                            border-width: 1px;
+                            background: gray;
+                            opacity: 0.1;
+                          "
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-xl-12">
+                    <div class="status p-4 mt-3">
+                      <div class="title">
+                        <p id="title1">Status Overview</p>
+                      </div>
+                      <div class="progress_bar mt-3">
+                        <div id="successBar1" class="bar"></div>
+                        <div id="failedBar1" class="bar"></div>
+                      </div>
+                      <div class="factor d-flex gap-3">
+                        <div class="d-flex mt-4">
+                          <div
+                            class="circle"
+                            id="c2"
+                            style="margin-top: 2px; width: 10px; height: 10px"
+                          ></div>
+                          <div style="font-size: 10px">Success Order</div>
+                        </div>
+                        <div class="d-flex mt-4">
+                          <div
+                            class="circle"
+                            id="c3"
+                            style="margin-top: 2px; width: 10px; height: 10px"
+                          ></div>
+                          <div style="font-size: 10px">Failed Order</div>
+                        </div>
+                      </div>
+                      <hr
+                        style="
+                          margin: 0px 0 0px 0;
+                          border-width: 1px;
+                          background: gray;
+                          opacity: 0.1;
+                        "
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-8 mt-3">
+              <div class="lineChart container-fluid h-100">
+                <div class="row">
+                  <div class="titleLineChart d-flex gap-5">
+                    <div class="d-flex align-items-center p-0">
+                      <p id="title1">Revenue Statistics</p>
+                    </div>
+                    <div class="col-5 month-year p-0">
+                      <div
+                        id="myMonthPicker2"
+                        class="input-group"
+                        data-target="#myMonthFrame2"
+                        style="background-color: #fff; border-radius: 10px"
+                      >
+                        <input
+                          type="text"
+                          class="form-control"
+                          disabled
+                          style="
+                            height: 46px;
+                            background-color: white;
+                            color: #767676;
+                            border: none;
+                            outline: none;
+                            text-align: center;
+                          "
+                        />
+                        <div
+                          class="input-group-append d-flex justify-content-center p-0"
+                        >
+                          <span
+                            class="input-group-text"
+                            style="
+                              background-color: white;
+                              border: none;
+                              outline: none;
+                            "
+                            ><img src="../../img/Vector.svg"
+                          /></span>
+                        </div>
+                      </div>
+
+                      <div id="myMonthFrame2" class="collapse">
+                        <div class="card card-body">
+                          <div class="row" id="framebody2">
+                            <div
+                              class="col-12 btn-group justify-content-center"
+                            >
+                              <button
+                                id="prevYear2"
+                                style="
+                                  background-color: transparent;
+                                  border: none;
+                                "
+                              >
+                                <i class="fa fa-chevron-left"></i>
+                              </button>
+                              <label id="selectedYear2"></label>
+                              <button
+                                id="nextYear2"
+                                style="
+                                  background-color: transparent;
+                                  border: none;
+                                "
+                              >
+                                <i class="fa fa-chevron-right"></i>
+                              </button>
+                            </div>
+                            <div class="col-12" id="calendarframe2">
+                              <table>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn2">Jan</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Feb</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Mar</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn2">Apr</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">May</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Jun</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn2">Jul</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Aug</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Sep</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn2">Oct</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Nov</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn2">Dec</button>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    id="lineChart1"
+                    style="position: relative; height: 40vh; width: 80vw"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <h1 style="color: var(--primary-purple, #301e67)">Tiktok Shop</h1>
+          <div class="row shopeeAnlysis">
+            <div class="col-12 col-xl-4">
+              <div class="container-fluid p-0">
+                <div class="row">
+                  <div class="col-6 col-xl-12">
+                    <div class="revenue p-4 mt-3">
+                      <div class="title">
+                        <p id="title1">Revenue</p>
+                        <p id="title2">34.000.000</p>
+                        <p id="title3">vnd</p>
+                        <hr
+                          style="
+                            margin: 0px 0 0px 0;
+                            border-width: 1px;
+                            background: gray;
+                            opacity: 0.1;
+                          "
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-xl-12">
+                    <div class="status p-4 mt-3">
+                      <div class="title">
+                        <p id="title1">Status Overview</p>
+                      </div>
+                      <div class="progress_bar mt-3">
+                        <div id="successBar2" class="bar"></div>
+                        <div id="failedBar2" class="bar"></div>
+                      </div>
+                      <div class="factor d-flex gap-3">
+                        <div class="d-flex mt-4">
+                          <div
+                            class="circle"
+                            id="c2"
+                            style="margin-top: 2px; width: 10px; height: 10px"
+                          ></div>
+                          <div style="font-size: 10px">Success Order</div>
+                        </div>
+                        <div class="d-flex mt-4">
+                          <div
+                            class="circle"
+                            id="c3"
+                            style="margin-top: 2px; width: 10px; height: 10px"
+                          ></div>
+                          <div style="font-size: 10px">Failed Order</div>
+                        </div>
+                      </div>
+                      <hr
+                        style="
+                          margin: 0px 0 0px 0;
+                          border-width: 1px;
+                          background: gray;
+                          opacity: 0.1;
+                        "
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-8 mt-3">
+              <div class="lineChart container-fluid h-100">
+                <div class="row">
+                  <div class="titleLineChart d-flex gap-5">
+                    <div class="d-flex align-items-center p-0">
+                      <p id="title1">Revenue Statistics</p>
+                    </div>
+                    <div class="col-5 month-year p-0">
+                      <div
+                        id="myMonthPicker3"
+                        class="input-group"
+                        data-target="#myMonthFrame3"
+                        style="background-color: #fff; border-radius: 10px"
+                      >
+                        <input
+                          type="text"
+                          class="form-control"
+                          disabled
+                          style="
+                            height: 46px;
+                            background-color: white;
+                            color: #767676;
+                            border: none;
+                            outline: none;
+                            text-align: center;
+                          "
+                        />
+                        <div
+                          class="input-group-append d-flex justify-content-center p-0"
+                        >
+                          <span
+                            class="input-group-text"
+                            style="
+                              background-color: white;
+                              border: none;
+                              outline: none;
+                            "
+                            ><img src="../../img/Vector.svg"
+                          /></span>
+                        </div>
+                      </div>
+
+                      <div id="myMonthFrame3" class="collapse">
+                        <div class="card card-body">
+                          <div class="row h-100" id="framebody3">
+                            <div
+                              class="col-12 btn-group justify-content-center"
+                            >
+                              <button
+                                id="prevYear3"
+                                style="
+                                  background-color: transparent;
+                                  border: none;
+                                "
+                              >
+                                <i class="fa fa-chevron-left"></i>
+                              </button>
+                              <label id="selectedYear3"></label>
+                              <button
+                                id="nextYear3"
+                                style="
+                                  background-color: transparent;
+                                  border: none;
+                                "
+                              >
+                                <i class="fa fa-chevron-right"></i>
+                              </button>
+                            </div>
+                            <div class="col-12" id="calendarframe3">
+                              <table>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn3">Jan</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Feb</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Mar</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn3">Apr</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">May</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Jun</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn3">Jul</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Aug</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Sep</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <button class="monthBtn3">Oct</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Nov</button>
+                                  </td>
+                                  <td>
+                                    <button class="monthBtn3">Dec</button>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    id="lineChart2"
+                    style="position: relative; height: 40vh; width: 80vw"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./analysis.js"></script>
+    <script src="./monthPicker.js"></script>
+    <script
+      src="https://kit.fontawesome.com/37734cba31.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  </body>
+</html>

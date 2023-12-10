@@ -40,6 +40,7 @@ function validateAndContinue(nextPage) {
         console.log("Kiểm tra không thành công. Không chuyển trang.");
     }
 }
+
 function validateAndContinue2(nextPage) {
 
     var businessName = document.getElementById("exampleFormControlInput4").value;
@@ -113,7 +114,25 @@ function validateAndContinue2(nextPage) {
         console.log("Kiểm tra không thành công. Không chuyển trang.");
     }
 }
-
+function submitAccount() {
+    const DOMAIN_SERVICE = " https://9bf9-14-161-27-27.ngrok-free.app"
+    const request = {
+        username: document.getElementById("exampleFormControlInput1").value,
+        password: document.getElementById("exampleFormControlInput2").value,
+        role: 'EN',
+        enterprise_name: document.getElementById("exampleFormControlInput4").value,
+    }
+    console.log('Data to be sent:', request);
+    axios.post(`${DOMAIN_SERVICE}/api/users`, request)
+        .then(response => {
+            console.log('Registration successful:', response.data);
+            window.history.pushState(null, null, "../../login.html");
+            window.location = "login.html";
+        })
+        .catch(error => {
+            console.error('Registration error:', error);
+        });
+}
 function showCurrentPage() {
 
     document.querySelectorAll('.frame_login').forEach(function (frame) {
@@ -164,7 +183,7 @@ function activateButton(button) {
     });
 
     button.classList.add('active');
-   
+
     disableButtonsAfter(button);
 }
 
@@ -200,14 +219,22 @@ function togglePasswordVisibility(inputId, icon) {
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        icon.classList.remove('fa-regular','fa-eye-slash');
+        icon.classList.remove('fa-regular', 'fa-eye-slash');
         icon.classList.add('fa-regular', 'fa-eye');
-       
-    
+
+
     } else {
         passwordInput.type = "password";
         icon.classList.remove('fa-regular', 'fa-eye');
         icon.classList.add('fa-regular', 'fa-eye-slash');
-        
+
     }
 }
+
+
+
+
+
+
+
+
