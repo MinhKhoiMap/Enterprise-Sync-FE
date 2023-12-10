@@ -1,0 +1,1 @@
+const DOMAIN_SERVICE = "http://localhost:5000"

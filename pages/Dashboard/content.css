@@ -15,7 +15,7 @@
   padding: 0%;
   margin: 0%;
 }
-#body_content {
+#body_content1 {
   max-height: 645px;
   background-color: white;
   border-radius: 8px;
@@ -169,7 +169,6 @@ table tbody tr td {
 .pagination button:disabled {
   display: none;
 }
-
 
 .show_more,
 .pagination button {
@@ -375,4 +374,21 @@ li {
   background: #dcd4e1;
   color: #301e67;
   position: relative;
+}
+
+#show_order_name,
+#show_order_phone,
+#show_order_address,
+#show_order_channel,
+#show_order_date,
+#show_order_status {
+  font-size: 16px;
+}
+
+.boxConfirm {
+  padding: 0 20px !important;
+}
+
+.frame_detail_item * {
+  font-family: "open sans";
 }

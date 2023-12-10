@@ -301,15 +301,25 @@ async function handleShowOrder() {
     `;
     })
     .join("");
+}
 
-  alert("Add Order Success!");
+const continueBtn = document.getElementById("continueBtn");
 
-  // axios
-  //   .post(`${DOMAIN_SERVER}/api/orders`, currentOrder, {
-  //     headers: {
-  //       authorization: localStorage.getItem("user_token"),
-  //     },
-  //   })
-  //   .then((res) => console.log(res))
-  //   .catch((err) => console.log(err));
+continueBtn.onclick = handleAddOrder;
+
+function handleAddOrder() {
+  // currentOrder.order_date = new Date(currentOrder.order_date).toDateString();
+
+  axios
+    .post(`${DOMAIN_SERVER}/api/orders`, currentOrder, {
+      headers: {
+        authorization: localStorage.getItem("user_token"),
+      },
+    })
+    .then((res) => console.log(res))
+    .then(() => {
+      const temp = document.getElementById("add-order");
+      temp.click();
+    })
+    .catch((err) => console.log(err));
 }

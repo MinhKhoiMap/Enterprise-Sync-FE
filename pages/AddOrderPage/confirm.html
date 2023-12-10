@@ -80,11 +80,7 @@
           </div>
 
           <div id="nav_item6">
-            <a
-              class="nav-link"
-              href="javascript:void(0);"
-              onclick="showLogoutConfirmation()"
-            >
+            <a class="nav-link" href="" onclick="showLogoutConfirmation()">
               <img class="icon_nav" src="../../img/Logout_icon.svg" />
               Log out
             </a>
@@ -107,7 +103,7 @@
                 <h1 id="header_title">Add new order</h1>
               </div>
 
-              <div class="row justify-content-between" id="tttttt">
+              <div class="row justify-content-around" id="tttttt">
                 <div class="col-12 col-md-5 sb_background">
                   <div class="container backgr_left">
                     <label class="headerInfor col-12"
@@ -427,6 +423,13 @@
                   </div> -->
                 </div>
 
+                <div
+                  class="d-none"
+                  id="add-order"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                ></div>
+
                 <div class="col-12">
                   <div class="row w-100 buttonField">
                     <div class="button col-6" id="backBtn">Back</div>
@@ -438,8 +441,42 @@
           </div>
         </div>
       </div>
-    </div>
 
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body text-center">Add order sucessfully!</div>
+            <div class="modal-footer justify-content-center">
+              <div class="container-fluid">
+                <div class="row gap-2 justify-content-around">
+                  <a
+                    class="button-add-success col-12 col-md-5 text-center"
+                    href="/pages/AddOrderPage/confirm.html"
+                  >
+                    Add new
+                  </a>
+                  <a
+                    class="button-add-success col-12 col-md-5 text-center"
+                    href="/pages/Dashboard/content.html"
+                  >
+                    View order list
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -511,7 +548,7 @@
           onChange: function (selectedDates, dateStr, instance) {
             var dateInput = document.querySelector("#datepicker");
             dateInput.value = dateStr;
-            currentOrder.order_date = dateStr;
+            currentOrder.order_date = selectedDates;
           },
         });
 
