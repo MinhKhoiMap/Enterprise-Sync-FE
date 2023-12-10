@@ -114,6 +114,9 @@ $(document).ready(function() {
       $("#myMonthPicker3 input").val(selectedMonth + " " + selectedYear);
       $("#myMonthFrame3").collapse("toggle");
       $(this).removeClass("margin");
+      var inputValue = $("#myMonthPicker3 input").val();
+
+      console.log("Giá trị của ô input sau khi chọn tháng:",inputValue);
     });
     $("#prevYear3").on("click", function() {
       var currentYear = parseInt($("#selectedYear3").text());
